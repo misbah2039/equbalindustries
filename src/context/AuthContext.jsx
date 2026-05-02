@@ -1,12 +1,16 @@
+/* Context + hook pattern; hook must live next to provider */
+/* eslint-disable react-refresh/only-export-components */
 import PropTypes from "prop-types";
-import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
+import { VALID_LOGIN } from "../auth/constants";
 
 const STORAGE_KEY = "equbal_auth";
-
-export const VALID_LOGIN = {
-  email: "equbalindustries@gmail.com",
-  password: "Equbal@123",
-};
 
 const AuthContext = createContext(null);
 
@@ -19,11 +23,11 @@ export function AuthProvider({ children }) {
     }
   });
 
+  /** Admin (company) credentials only */
   const login = useCallback((email, password) => {
-    const ok =
-      email.trim().toLowerCase() === VALID_LOGIN.email.toLowerCase() &&
-      password === VALID_LOGIN.password;
-    if (ok) {
+    const e = email.trim().toLowerCase();
+    const pwd = password;
+    if (e === VALID_LOGIN.email.toLowerCase() && pwd === VALID_LOGIN.password) {
       localStorage.setItem(STORAGE_KEY, "1");
       setIsAuthenticated(true);
       return true;
@@ -38,7 +42,7 @@ export function AuthProvider({ children }) {
 
   const value = useMemo(
     () => ({ isAuthenticated, login, logout }),
-    [isAuthenticated, login, logout]
+    [isAuthenticated, login, logout],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

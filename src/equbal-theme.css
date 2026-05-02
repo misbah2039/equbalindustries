@@ -1,0 +1,313 @@
+/* Equbal — design tokens + Bootstrap bridge (load after bootstrap.css) */
+:root,
+[data-bs-theme="light"] {
+  --eq-navbar-h: 64px;
+  --eq-ink: #0c1222;
+  --eq-ink-soft: #1e293b;
+  --eq-muted: #64748b;
+  --eq-line: rgba(148, 163, 184, 0.35);
+  --eq-surface: #eef2f9;
+  --eq-surface-2: #e2e8f0;
+  --eq-card: #ffffff;
+  --eq-accent: #f97316;
+  --eq-accent-deep: #ea580c;
+  --eq-blue: #2563eb;
+  --eq-blue-deep: #1d4ed8;
+  --eq-glow: rgba(37, 99, 235, 0.45);
+
+  --bs-primary: #2563eb;
+  --bs-primary-rgb: 37, 99, 235;
+  --bs-link-color: #2563eb;
+  --bs-link-hover-color: #1d4ed8;
+  --bs-border-radius: 0.875rem;
+  --bs-border-radius-lg: 1.125rem;
+  --bs-border-radius-xl: 1.35rem;
+  --bs-body-color: var(--eq-ink-soft);
+  --bs-body-bg: var(--eq-surface);
+  --bs-heading-color: var(--eq-ink);
+  --bs-secondary-color: #475569;
+  --bs-secondary-rgb: 71, 85, 105;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.equbal-main {
+  padding-top: var(--eq-navbar-h);
+  min-height: calc(100vh - var(--eq-navbar-h));
+  background: var(--eq-surface);
+  margin-top: 0;
+}
+
+/* Stronger muted / secondary copy on pale section backgrounds */
+.equbal-readability-text,
+[data-bs-theme="light"] .text-body-secondary {
+  color: #3f4f63 !important;
+}
+
+[data-bs-theme="light"] .text-muted {
+  color: #5c6b7e !important;
+}
+
+/* ——— Navbar (dark, premium) ——— */
+.equbal-navbar {
+  background: linear-gradient(
+    180deg,
+    rgba(7, 11, 22, 0.96) 0%,
+    rgba(15, 23, 42, 0.93) 100%
+  ) !important;
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.22) !important;
+  box-shadow: 0 10px 28px rgba(2, 6, 23, 0.34);
+  margin-bottom: 0 !important;
+}
+
+.equbal-navbar .navbar-brand {
+  color: #f8fafc !important;
+  max-width: min(420px, 86vw);
+}
+
+.equbal-navbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  padding: 0.45rem 0.6rem;
+}
+
+.equbal-navbar .navbar-toggler-icon {
+  filter: invert(1);
+  opacity: 0.9;
+}
+
+.equbal-navbar .nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.45rem 0.85rem !important;
+}
+
+.equbal-navbar .nav-link:not(.active) {
+  color: #cbd5e1 !important;
+}
+
+.equbal-navbar .nav-link:not(.active):hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.equbal-navbar .nav-link.active {
+  color: #0f172a !important;
+  background: linear-gradient(135deg, #fed7aa 0%, #fb923c 40%, #f97316 100%);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+    0 4px 14px rgba(234, 88, 12, 0.35);
+}
+
+.equbal-navbar .btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border: none;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.45);
+}
+
+.equbal-navbar .btn-primary:hover {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  transform: translateY(-1px);
+}
+
+.equbal-navbar .btn-outline-secondary {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #e2e8f8;
+}
+
+.equbal-navbar .btn-outline-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+/* ——— Footer ——— */
+.equbal-footer {
+  position: relative;
+  background: radial-gradient(
+      ellipse 80% 120% at 50% -40%,
+      rgba(37, 99, 235, 0.22),
+      transparent 55%
+    ),
+    linear-gradient(165deg, #070b14 0%, #0f172a 45%, #1e1b4b 100%);
+  color: #cbd5e1;
+}
+
+.equbal-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--eq-accent),
+    #60a5fa,
+    transparent
+  );
+  opacity: 0.85;
+}
+
+.equbal-footer h3,
+.equbal-footer h4,
+.equbal-footer .footer-heading {
+  color: #f8fafc;
+  font-family: "Outfit", "DM Sans", sans-serif;
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+}
+
+.equbal-footer p,
+.equbal-footer a {
+  color: #94a3b8;
+  font-size: 0.93rem;
+}
+
+.equbal-footer a:hover {
+  color: #fff;
+}
+
+.equbal-footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 999px;
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease,
+    border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.equbal-footer-social-link:hover {
+  color: #fff;
+  background: rgba(249, 115, 22, 0.22);
+  border-color: rgba(251, 191, 36, 0.45);
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.35);
+  transform: translateY(-2px);
+}
+
+/* ——— Auth ——— */
+.equbal-auth-shell {
+  min-height: calc(100vh - 72px);
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(37, 99, 235, 0.12),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(249, 115, 22, 0.1),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+.equbal-auth-card {
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 1.35rem;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  overflow: hidden;
+}
+
+.equbal-auth-hero {
+  background: linear-gradient(
+    155deg,
+    #0a0f1a 0%,
+    #1e3a5f 42%,
+    #1d4ed8 88%,
+    #172554 100%
+  );
+  color: #fff;
+  position: relative;
+}
+
+.equbal-auth-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 85% 15%,
+      rgba(249, 115, 22, 0.35),
+      transparent 42%
+    ),
+    radial-gradient(circle at 10% 90%, rgba(96, 165, 250, 0.2), transparent 45%);
+  pointer-events: none;
+}
+
+.equbal-auth-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 1.5rem;
+}
+
+@media (max-width: 991.98px) {
+  .equbal-auth-hero-inner {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+.letter-spacing {
+  letter-spacing: 0.12em;
+}
+
+.equbal-anchor {
+  scroll-margin-top: 5.75rem;
+}
+
+.equbal-equipment-photo {
+  min-height: 220px;
+  background: linear-gradient(135deg, #e2e8f0, #f1f5f9);
+}
+
+@media (min-width: 992px) {
+  .equbal-equipment-photo {
+    min-height: 280px;
+  }
+}
+
+.equbal-blog-card {
+  border-radius: var(--bs-border-radius-lg) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.equbal-blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1.25rem 3rem rgba(15, 23, 42, 0.14) !important;
+}
+
+/* Global Bootstrap polish */
+.btn-primary {
+  font-weight: 600;
+  border-radius: 999px;
+  padding-left: 1.35rem;
+  padding-right: 1.35rem;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border: none;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.card {
+  border-radius: var(--bs-border-radius-lg);
+}

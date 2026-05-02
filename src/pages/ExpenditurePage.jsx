@@ -12,23 +12,30 @@ function ExpenditurePage() {
   }
 
   return (
-    <section className="section expenditure-page">
+    <section className="py-5 bg-body expenditure-page">
       <div className="container">
-        <div className="expenditure-toolbar no-print">
-          <h2 className="page-title">Expenditure</h2>
-          <button type="button" className="btn-print" onClick={handlePrint}>
+        <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4 no-print">
+          <div>
+            <h1 className="h2 fw-bold text-dark mb-0">Expenditure</h1>
+            <p className="text-secondary small mb-0 mt-1">Internal statement</p>
+          </div>
+          <button
+            type="button"
+            className="btn btn-dark rounded-pill px-4"
+            onClick={handlePrint}
+          >
             Print
           </button>
         </div>
 
         <div className="expenditure-print-header print-only">
-          <h1>Equbal Industry and Car Services</h1>
+          <h1>Equbal Industries &amp; Car Services</h1>
           <p>Expenditure Statement</p>
         </div>
 
-        <div className="expenditure-table-wrap">
-          <table className="expenditure-table">
-            <thead>
+        <div className="table-responsive shadow-sm rounded-3 border bg-white">
+          <table className="table table-hover align-middle mb-0 expenditure-table">
+            <thead className="table-light">
               <tr>
                 <th>Sr No.</th>
                 <th>Date</th>

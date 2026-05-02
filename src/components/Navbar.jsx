@@ -1,126 +1,133 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const baseNavItems = [
-  { label: "Home", path: "/" },
+  { label: "Home", path: "/", end: true },
   { label: "About", path: "/about" },
   { label: "Services", path: "/services" },
+  { label: "Equipment", path: "/equipment" },
   { label: "Customers", path: "/customers" },
-  { label: "Partners", path: "/partners" },
-  { label: "Gallery", path: "/gallery" },
+  { label: "Blog", path: "/blog" },
   { label: "Contact", path: "/contact" },
 ];
 
 function Navbar() {
   const [showLogoFallback, setShowLogoFallback] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const { isAuthenticated, logout } = useAuth();
-  const location = useLocation();
-  const logoPath = "companylogo.jpeg";
+  const logoPath = "companylogo.png";
 
   const navItems = isAuthenticated
-    ? [...baseNavItems, { label: "Expenditure", path: "/expenditure" }]
+    ? [
+        ...baseNavItems,
+        { label: "Documents", path: "/company-documents" },
+        { label: "Expenditure", path: "/expenditure" },
+      ]
     : baseNavItems;
 
   useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
-
-  useEffect(() => {
-    if (menuOpen) {
+    const el = document.getElementById("equbalNavbar");
+    if (!el) return undefined;
+    const onShown = () => {
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
+    };
+    const onHidden = () => {
       document.body.style.overflow = "";
     };
-  }, [menuOpen]);
+    el.addEventListener("shown.bs.collapse", onShown);
+    el.addEventListener("hidden.bs.collapse", onHidden);
+    return () => {
+      el.removeEventListener("shown.bs.collapse", onShown);
+      el.removeEventListener("hidden.bs.collapse", onHidden);
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   return (
-    <header className={`site-header ${menuOpen ? "nav-open" : ""}`}>
-      <div className="container nav-wrap">
-        <div className="brand">
-          <div className="brand-logo">
+    <nav
+      className="navbar navbar-expand-lg navbar-dark fixed-top equbal-navbar equbal-navbar-advanced mb-0"
+      aria-label="Primary"
+    >
+      <div className="container">
+        <Link
+          className="navbar-brand d-flex align-items-center gap-2 gap-sm-3 py-1"
+          to="/"
+        >
+          <span className="equbal-brand-mark">
             {!showLogoFallback ? (
               <img
                 src={logoPath}
-                alt="Equbal company logo"
-                className="brand-logo-image"
+                alt="Equbal logo"
+                className="equbal-brand-img"
+                width={60}
+                height={60}
                 onError={() => setShowLogoFallback(true)}
               />
             ) : (
-              <span>Logo</span>
+              <span className="equbal-brand-fallback" aria-hidden>
+                EI
+              </span>
             )}
-          </div>
-          <div className="brand-text">
-            <h1>Equbal Industry and Car Services</h1>
-          </div>
-        </div>
+          </span>
+          <span className="equbal-brand-text d-none d-md-flex flex-column lh-sm">
+            <span className="equbal-brand-title">Equbal Industries</span>
+            <span className="equbal-brand-sub">&amp; Car Services</span>
+          </span>
+        </Link>
 
         <button
+          className="navbar-toggler border-0 shadow-sm equbal-nav-toggler"
           type="button"
-          className="nav-burger"
-          aria-expanded={menuOpen}
-          aria-controls="primary-navigation"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          onClick={() => setMenuOpen((o) => !o)}
+          data-bs-toggle="collapse"
+          data-bs-target="#equbalNavbar"
+          aria-controls="equbalNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <span className="nav-burger-bar" />
-          <span className="nav-burger-bar" />
-          <span className="nav-burger-bar" />
+          <span className="navbar-toggler-icon" />
         </button>
 
-        <nav
-          id="primary-navigation"
-          className={`nav-menu ${menuOpen ? "nav-menu-open" : ""}`}
-          aria-label="Main navigation"
-        >
-          {navItems.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              className={({ isActive }) =>
-                isActive ? "nav-link nav-link-active" : "nav-link"
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-          {isAuthenticated ? (
-            <button
-              type="button"
-              className="nav-link nav-logout"
-              onClick={() => {
-                logout();
-                setMenuOpen(false);
-              }}
-            >
-              Logout
-            </button>
-          ) : (
-            <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                isActive ? "nav-link nav-link-login nav-link-active" : "nav-link nav-link-login"
-              }
-            >
-              Login
-            </NavLink>
-          )}
-        </nav>
+        <div className="collapse navbar-collapse" id="equbalNavbar">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-1 py-2 py-lg-0 equbal-nav-list">
+            {navItems.map((item) => (
+              <li className="nav-item" key={item.path}>
+                <NavLink
+                  to={item.path}
+                  end={item.end}
+                  className={({ isActive }) =>
+                    `nav-link rounded-pill px-3 equbal-nav-link ${isActive ? "active" : ""}`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+            <li className="nav-item ms-lg-3 pt-2 pt-lg-0 border-top border-secondary border-opacity-25 mt-2 mt-lg-0 border-lg-0">
+              {isAuthenticated ? (
+                <button
+                  type="button"
+                  className="btn btn-outline-light btn-sm rounded-pill px-3 w-100 w-lg-auto"
+                  onClick={() => logout()}
+                >
+                  Logout
+                </button>
+              ) : (
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    `btn btn-sm rounded-pill px-4 fw-semibold w-100 w-lg-auto equbal-nav-signin ${
+                      isActive ? "btn-light text-dark" : "btn-outline-light"
+                    }`
+                  }
+                >
+                  Admin
+                </NavLink>
+              )}
+            </li>
+          </ul>
+        </div>
       </div>
-      {menuOpen ? (
-        <button
-          type="button"
-          className="nav-backdrop"
-          aria-hidden
-          tabIndex={-1}
-          onClick={() => setMenuOpen(false)}
-        />
-      ) : null}
-    </header>
+    </nav>
   );
 }
 

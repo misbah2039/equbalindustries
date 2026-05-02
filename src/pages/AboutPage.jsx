@@ -1,126 +1,290 @@
+import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { companyDocuments } from "../data/companyDocuments";
 import { leadershipTeam } from "../data/content";
 
+const values = [
+  {
+    title: "Safety & clarity",
+    body: "Permits, PPE, and plain-language updates on every job — industrial or automotive.",
+  },
+  {
+    title: "Measurable handover",
+    body: "Checklists and sign-off steps so nothing is “assumed done.”",
+  },
+  {
+    title: "Long-term posture",
+    body: "We optimise for relationships, not one-off invoices.",
+  },
+];
+
 function AboutPage() {
+  const { isAuthenticated } = useAuth();
   const featuredLeader = leadershipTeam.find((member) => member.featured);
   const supportLeaders = leadershipTeam.filter((member) => !member.featured);
-  const railLeaders = [
-    ...(featuredLeader ? [featuredLeader] : []),
-    ...supportLeaders,
-  ];
 
   return (
-    <section className="section about-page">
-      <div className="container-wide">
-        <div className="about-page-layout">
-          <aside className="about-leadership-rail" aria-label="Leadership team">
-            <h3 className="rail-title">Our Team</h3>
-            <p className="rail-intro">CEO, MD &amp; Operational Manager</p>
-            <div className="rail-cards">
-              {railLeaders.map((member) => (
-                <article
-                  className={`rail-card ${member.featured ? "rail-card-featured" : ""}`}
-                  key={member.name}
-                >
-                  <img
-                    src={member.imagePath}
-                    alt={member.imageAlt || member.name}
-                    className="rail-card-image"
-                  />
-                  <div className="rail-card-body">
-                    <h4>{member.name}</h4>
-                    <p>{member.role}</p>
+    <div className="about-advanced equbal-about-bg">
+      <header className="equbal-page-hero text-white py-5 mb-0">
+        <div className="container py-4">
+          <p className="text-warning text-uppercase small fw-bold letter-spacing mb-2">
+            About us
+          </p>
+          <h1 className="display-5 fw-bold mb-3 text-white">
+            Built in workshops. Proven on sites.
+          </h1>
+          <p className="lead text-white-50 mb-0" style={{ maxWidth: "42rem" }}>
+            Equbal Industries &amp; Car Services combines automotive craft with
+            industrial execution — one operating rhythm, three cities, dozens of
+            service lines.
+          </p>
+        </div>
+      </header>
+
+      <section className="py-5 border-bottom equbal-surface-panel">
+        <div className="container">
+          <div className="row g-4 align-items-center">
+            <div className="col-lg-6">
+              <h2 className="h3 fw-bold text-dark mb-3">Who we are</h2>
+              <p className="text-body-secondary lh-lg mb-3">
+                We are not a generic “agency conglomerate.” Our roots are in
+                bays, tools, and customer cars — then we scaled the same
+                discipline into civil support, HVAC, events, and trade.
+              </p>
+              <p className="text-body-secondary lh-lg mb-0">
+                That means your project manager speaks the same language as your
+                technician: timelines are realistic, risks are called early, and
+                quality is checked before we ask for payment.
+              </p>
+            </div>
+            <div className="col-lg-6">
+              <div className="row g-3">
+                <div className="col-6">
+                  <div className="equbal-stat-bubble h-100">
+                    <strong className="equbal-stat-bubble-num">3</strong>
+                    <span className="small text-secondary">Offices</span>
                   </div>
-                </article>
-              ))}
-            </div>
-          </aside>
-
-          <div className="about-main">
-            <div className="about-page-hero">
-              <p className="kicker about-kicker about-hero-kicker">
-                Corporate Profile
-              </p>
-              <h2>About Equbal Industry and Car Services</h2>
-              <p>
-                We deliver dependable automotive care, industrial support, and
-                multi-domain business services with a commitment to quality,
-                transparency, and long-term partnerships.
-              </p>
-            </div>
-
-            <div className="about-hero">
-              <div className="about-text">
-                <h3 className="section-title about-subheading">Who we are</h3>
-                <p>
-                  Equbal Industry and Car Services is built on practical expertise
-                  and modern execution standards. From vehicle servicing to
-                  engineering and training solutions, we align our work with your
-                  operational goals.
-                </p>
-                <p>
-                  Our teams focus on clear communication, disciplined delivery,
-                  and measurable outcomes so clients can rely on us for both
-                  routine service and complex projects.
-                </p>
+                </div>
+                <div className="col-6">
+                  <div className="equbal-stat-bubble h-100">
+                    <strong className="equbal-stat-bubble-num">6-10</strong>
+                    <span className="small text-secondary">Daily window</span>
+                  </div>
+                </div>
+                <div className="col-12">
+                  <div className="equbal-stat-wide">
+                    <span className="fw-semibold d-block mb-1">Coverage</span>
+                    <span className="small opacity-90">
+                      Automotive · Civil &amp; MEP support · Events &amp;
+                      training · Marketing &amp; import–export
+                    </span>
+                  </div>
+                </div>
               </div>
-
-              <div className="about-highlight">
-                <h4>Our standards</h4>
-                <ul>
-                  <li>Skilled technicians and coordinated project teams</li>
-                  <li>Quality checks at every stage of service</li>
-                  <li>Honest timelines and cost visibility</li>
-                  <li>Support that extends beyond project completion</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="about-mission-grid">
-              <article className="about-mission-card">
-                <h3>Mission</h3>
-                <p>
-                  To provide reliable, professional services that keep businesses
-                  and fleets running efficiently while maintaining the highest
-                  standards of safety and customer care.
-                </p>
-              </article>
-              <article className="about-mission-card">
-                <h3>Vision</h3>
-                <p>
-                  To be a preferred partner for industrial and automotive
-                  solutions across regions—known for trust, innovation, and
-                  consistent execution.
-                </p>
-              </article>
-            </div>
-
-            <div className="about-stats">
-              <article className="about-stat-card">
-                <h3>Multi-domain expertise</h3>
-                <p>
-                  Engineering, education, marketing, and hands-on service
-                  delivery under one coordinated structure.
-                </p>
-              </article>
-              <article className="about-stat-card">
-                <h3>Client-first operations</h3>
-                <p>
-                  Structured processes and responsive support designed around real
-                  business needs.
-                </p>
-              </article>
-              <article className="about-stat-card">
-                <h3>Partnership mindset</h3>
-                <p>
-                  We invest in relationships that grow with your organisation
-                  over the long term.
-                </p>
-              </article>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className="py-5 equbal-surface-muted">
+        <div className="container">
+          <h2 className="h3 fw-bold text-dark text-center mb-2">
+            Registrations &amp; certificates
+          </h2>
+          <p
+            className="text-body-secondary text-center mb-4 mx-auto small"
+            style={{ maxWidth: "36rem" }}
+          >
+            Official documents we maintain for compliance and tenders.{" "}
+            <strong className="text-dark">Admin sign-in</strong> unlocks bulk
+            download from the{" "}
+            <Link to="/company-documents" className="fw-semibold">
+              Company documents
+            </Link>{" "}
+            portal.
+          </p>
+          <div className="row g-3">
+            {companyDocuments.map((doc) => (
+              <div className="col-md-6 col-xl-4" key={doc.id}>
+                <article className="card border-0 shadow-sm h-100 equbal-cert-card">
+                  <div className="card-body p-4">
+                    <div className="equbal-cert-badge mb-2" aria-hidden>
+                      PDF
+                    </div>
+                    <h3 className="h6 fw-bold text-dark mb-2">{doc.title}</h3>
+                    <p className="small text-body-secondary mb-3">
+                      {doc.short}
+                    </p>
+                    {isAuthenticated ? (
+                      <Link
+                        to="/company-documents"
+                        className="btn btn-primary btn-sm rounded-pill"
+                      >
+                        Open downloads
+                      </Link>
+                    ) : (
+                      <p className="small text-muted mb-0">
+                        <Link to="/login" className="fw-semibold">
+                          Admin login
+                        </Link>{" "}
+                        required for downloads.
+                      </p>
+                    )}
+                  </div>
+                </article>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-5 border-top border-bottom bg-white">
+        <div className="container">
+          <h2 className="h3 fw-bold text-dark text-center mb-2">
+            Presence &amp; reach
+          </h2>
+          <p
+            className="text-body-secondary text-center mb-4 mx-auto"
+            style={{ maxWidth: "40rem" }}
+          >
+            Head offices in <strong className="text-dark">Lucknow</strong>,{" "}
+            <strong className="text-dark">Delhi</strong>, and{" "}
+            <strong className="text-dark">Dehradun</strong> — we support{" "}
+            <strong className="text-dark">pan-India</strong> projects and
+            mobility programmes where scope and timelines align with our teams.
+          </p>
+          <div className="equbal-map-frame rounded-4 overflow-hidden shadow-sm border">
+            <iframe
+              title="India — service coverage map"
+              className="equbal-map-iframe"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=65%2C6%2C98%2C38&amp;layer=mapnik"
+              loading="lazy"
+            />
+          </div>
+          <p className="small text-center text-muted mt-3 mb-0">
+            Map data © OpenStreetMap contributors — indicative coverage, not a
+            legal boundary.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-5 equbal-surface-panel">
+        <div className="container">
+          <h2 className="h3 fw-bold text-dark text-center mb-4">
+            Operating principles
+          </h2>
+          <div className="row g-4">
+            {values.map((v) => (
+              <div className="col-md-4" key={v.title}>
+                <article className="equbal-value-card h-100">
+                  <h3 className="h6 fw-bold text-dark mb-2">{v.title}</h3>
+                  <p className="small text-body-secondary mb-0">{v.body}</p>
+                </article>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-5 bg-white border-bottom">
+        <div className="container">
+          <div className="row g-5">
+            <div className="col-lg-5">
+              <h2 className="h3 fw-bold text-dark mb-3">
+                Mission &amp; vision
+              </h2>
+              <div className="equbal-mv-card mb-3">
+                <h3 className="h6 text-primary mb-2">Mission</h3>
+                <p className="small text-body-secondary mb-0">
+                  Keep fleets and industrial assets reliable with honest
+                  timelines, trained people, and transparent costs.
+                </p>
+              </div>
+              <div className="equbal-mv-card">
+                <h3 className="h6 text-primary mb-2">Vision</h3>
+                <p className="small text-body-secondary mb-0">
+                  Be the name enterprises and families both trust when quality
+                  cannot be negotiated.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-7">
+              <h2 className="h3 fw-bold text-dark mb-4">Leadership</h2>
+              <div className="row g-3">
+                {featuredLeader ? (
+                  <div className="col-12">
+                    <article className="equbal-lead-card equbal-lead-card--featured">
+                      <div className="row g-0 align-items-stretch">
+                        <div className="col-sm-5">
+                          <div className="ratio ratio-1x1 h-100 bg-light">
+                            <img
+                              src={featuredLeader.imagePath}
+                              alt={
+                                featuredLeader.imageAlt || featuredLeader.name
+                              }
+                              className="object-fit-cover rounded-start-3"
+                            />
+                          </div>
+                        </div>
+                        <div className="col-sm-7 p-4">
+                          <span className="badge bg-warning text-dark mb-2">
+                            Featured
+                          </span>
+                          <h3 className="h5 fw-bold mb-1">
+                            {featuredLeader.name}
+                          </h3>
+                          <p className="small text-body-secondary mb-0">
+                            {featuredLeader.role}
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                ) : null}
+                {supportLeaders.map((member) => (
+                  <div className="col-md-6" key={member.name}>
+                    <article className="equbal-lead-card h-100">
+                      <div className="ratio ratio-4x3 bg-light rounded-top-3">
+                        <img
+                          src={member.imagePath}
+                          alt={member.imageAlt || member.name}
+                          className="object-fit-cover"
+                        />
+                      </div>
+                      <div className="p-3">
+                        <h3 className="h6 fw-bold mb-1">{member.name}</h3>
+                        <p className="small text-body-secondary mb-0">
+                          {member.role}
+                        </p>
+                      </div>
+                    </article>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-5 bg-dark text-white">
+        <div className="container text-center py-3">
+          <h2 className="h4 fw-bold mb-3">Next step</h2>
+          <p
+            className="text-white-50 small mb-4 mx-auto"
+            style={{ maxWidth: "28rem" }}
+          >
+            Tell us the city, the asset (vehicle / site / event), and your
+            window — we will route it to the right desk in one go.
+          </p>
+          <Link
+            to="/contact"
+            className="btn btn-warning btn-lg rounded-pill fw-semibold px-4"
+          >
+            Contact Equbal
+          </Link>
+        </div>
+      </section>
+    </div>
   );
 }
 
