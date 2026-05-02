@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import Collapse from "bootstrap/js/dist/collapse";
+import { useCallback, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
@@ -15,7 +16,15 @@ const baseNavItems = [
 function Navbar() {
   const [showLogoFallback, setShowLogoFallback] = useState(false);
   const { isAuthenticated, logout } = useAuth();
-  const logoPath = "companylogo.png";
+  const logoPath = "companylogos.jpg";
+
+  const closeMobileMenu = useCallback(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(min-width: 992px)").matches) return;
+    const el = document.getElementById("equbalNavbar");
+    if (!el?.classList.contains("show")) return;
+    Collapse.getOrCreateInstance(el).hide();
+  }, []);
 
   const navItems = isAuthenticated
     ? [
@@ -52,6 +61,7 @@ function Navbar() {
         <Link
           className="navbar-brand d-flex align-items-center gap-2 gap-sm-3 py-1"
           to="/"
+          onClick={closeMobileMenu}
         >
           <span className="equbal-brand-mark">
             {!showLogoFallback ? (
@@ -94,6 +104,7 @@ function Navbar() {
                 <NavLink
                   to={item.path}
                   end={item.end}
+                  onClick={closeMobileMenu}
                   className={({ isActive }) =>
                     `nav-link rounded-pill px-3 equbal-nav-link ${isActive ? "active" : ""}`
                   }
@@ -107,13 +118,17 @@ function Navbar() {
                 <button
                   type="button"
                   className="btn btn-outline-light btn-sm rounded-pill px-3 w-100 w-lg-auto"
-                  onClick={() => logout()}
+                  onClick={() => {
+                    logout();
+                    closeMobileMenu();
+                  }}
                 >
                   Logout
                 </button>
               ) : (
                 <NavLink
                   to="/login"
+                  onClick={closeMobileMenu}
                   className={({ isActive }) =>
                     `btn btn-sm rounded-pill px-4 fw-semibold w-100 w-lg-auto equbal-nav-signin ${
                       isActive ? "btn-light text-dark" : "btn-outline-light"

@@ -32,7 +32,7 @@ function HomePage() {
   return (
     <>
       <div className="equbal-home-hero-wrap">
-        <div className="container-fluid px-0">
+        <div className="container-fluid px-0 equbal-home-hero-stack">
           <div
             id="homeHeroCarousel"
             className="carousel slide carousel-fade equbal-home-hero-carousel"
@@ -64,10 +64,7 @@ function HomePage() {
                       alt=""
                       className="equbal-home-hero-img"
                     />
-                    <div className="equbal-home-hero-overlay" />
-                    <p className="equbal-home-hero-slide-title">
-                      {slide.label}
-                    </p>
+                    <div className="equbal-home-hero-overlay" aria-hidden />
                   </div>
                 </div>
               ))}
@@ -91,70 +88,84 @@ function HomePage() {
               <span className="visually-hidden">Next</span>
             </button>
           </div>
-        </div>
 
-        <div className="equbal-home-hero-bar text-center">
-          <div className="container py-4 py-lg-5 equbal-home-hero-bar-inner">
-            <p className="equbal-home-hero-brand mb-2 mx-auto">
-              Equbal Industries &amp; Car Services
-            </p>
-            <p className="equbal-home-hero-kicker text-uppercase small fw-bold mb-2 mx-auto">
-              Industrial strength · Automotive precision · Pan-India reach
-            </p>
-            <h1 className="equbal-home-hero-heading mb-3 mx-auto">
-              One partner for workshop, field, and growth
-            </h1>
-            <p className="equbal-home-hero-lead mb-4 mx-auto">
-              Car care, diagnostics, civil &amp; MEP support, events, and trade
-              — disciplined teams, clear reporting, offices in Lucknow, Delhi,
-              and Dehradun.
-            </p>
-            <div
-              className="equbal-hero-stats equbal-home-hero-stats mb-4 justify-content-center mx-auto"
-              aria-label="Highlights"
-            >
-              <div className="equbal-hero-stat">
-                <strong>3</strong>
-                <span>Cities</span>
-              </div>
-              <div className="equbal-hero-stat">
-                <strong>9–9</strong>
-                <span>Support window</span>
-              </div>
-              <div className="equbal-hero-stat">
-                <strong>∞</strong>
-                <span>Repeat clients</span>
-              </div>
-            </div>
-            <div className="d-flex flex-wrap gap-2 justify-content-center">
-              <Link
-                to="/contact"
-                className="btn btn-primary btn-lg rounded-pill px-4 fw-semibold"
+          <div className="equbal-home-hero-floating text-center">
+            <div className="container py-3 py-md-4 py-lg-5 equbal-home-hero-bar-inner">
+              <p className="equbal-home-hero-brand mb-2 mx-auto">
+                Equbal Industries &amp; Car Services
+              </p>
+              <p className="equbal-home-hero-kicker text-uppercase small fw-bold mb-2 mx-auto">
+                Industrial strength · Automotive precision · Pan-India reach
+              </p>
+              <h1 className="equbal-home-hero-heading mb-2 mb-md-3 mx-auto">
+                One partner for workshop, field, and growth
+              </h1>
+              <p className="equbal-home-hero-lead mb-3 mb-md-4 mx-auto">
+                Car care, diagnostics, civil &amp; MEP support, events, and trade
+                — disciplined teams, clear reporting, offices in Lucknow, Delhi,
+                and Dehradun.
+              </p>
+              <div
+                className="equbal-home-hero-trust mb-3 mb-md-4"
+                aria-label="Service highlights"
               >
-                Book service
-              </Link>
-              <Link
-                to="/services"
-                className="btn btn-outline-light btn-lg rounded-pill px-4 fw-semibold border-2"
+                <span className="equbal-home-hero-trust-item">
+                  Industrial &amp; field
+                </span>
+                <span className="equbal-home-hero-trust-sep" aria-hidden>
+                  ·
+                </span>
+                <span className="equbal-home-hero-trust-item">
+                  Car care &amp; diagnostics
+                </span>
+                <span className="equbal-home-hero-trust-sep" aria-hidden>
+                  ·
+                </span>
+                <span className="equbal-home-hero-trust-item">
+                  Events &amp; training
+                </span>
+                <span className="equbal-home-hero-trust-sep" aria-hidden>
+                  ·
+                </span>
+                <span className="equbal-home-hero-trust-item">
+                  Trade &amp; marketing
+                </span>
+              </div>
+              <div
+                className="equbal-hero-stats equbal-home-hero-stats mb-3 mb-md-4 justify-content-center mx-auto"
+                aria-label="Highlights"
               >
-                View services
-              </Link>
+                <div className="equbal-hero-stat">
+                  <strong>3</strong>
+                  <span>Cities</span>
+                </div>
+                <div className="equbal-hero-stat">
+                  <strong>9–9</strong>
+                  <span>Support window</span>
+                </div>
+                <div className="equbal-hero-stat">
+                  <strong>∞</strong>
+                  <span>Repeat clients</span>
+                </div>
+              </div>
+              <div className="d-flex flex-wrap gap-2 justify-content-center">
+                <Link
+                  to="/contact"
+                  className="btn btn-primary btn-lg rounded-pill px-4 fw-semibold"
+                >
+                  Book service
+                </Link>
+                <Link
+                  to="/services"
+                  className="btn btn-outline-light btn-lg rounded-pill px-4 fw-semibold border-2"
+                >
+                  View services
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <section className="home-trust-strip" aria-label="Brand highlights">
-        <div className="container home-trust-inner">
-          <span className="home-trust-item">Industrial &amp; field</span>
-          <span className="home-trust-sep" aria-hidden />
-          <span className="home-trust-item">Car care &amp; diagnostics</span>
-          <span className="home-trust-sep" aria-hidden />
-          <span className="home-trust-item">Events &amp; training</span>
-          <span className="home-trust-sep" aria-hidden />
-          <span className="home-trust-item">Trade &amp; marketing</span>
-        </div>
-      </section>
 
       <section className="section section-alt equbal-why-section">
         <div className="container">
