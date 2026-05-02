@@ -92,18 +92,18 @@ function HomePage() {
           <div className="equbal-home-hero-floating text-center">
             <div className="container py-3 py-md-4 py-lg-5 equbal-home-hero-bar-inner">
               <p className="equbal-home-hero-brand mb-2 mx-auto">
-                Equbal Industries &amp; Car Services
+                {/* Equbal Industries &amp; Car Services */}
               </p>
               <p className="equbal-home-hero-kicker text-uppercase small fw-bold mb-2 mx-auto">
-                Industrial strength · Automotive precision · Pan-India reach
+                {/* Industrial strength · Automotive precision · Pan-India reach */}
               </p>
               <h1 className="equbal-home-hero-heading mb-2 mb-md-3 mx-auto">
                 One partner for workshop, field, and growth
               </h1>
               <p className="equbal-home-hero-lead mb-3 mb-md-4 mx-auto">
-                Car care, diagnostics, civil &amp; MEP support, events, and trade
-                — disciplined teams, clear reporting, offices in Lucknow, Delhi,
-                and Dehradun.
+                Car care, diagnostics, civil &amp; MEP support, events, and
+                trade — disciplined teams, clear reporting, offices in Lucknow,
+                Delhi, and Dehradun.
               </p>
               <div
                 className="equbal-home-hero-trust mb-3 mb-md-4"
