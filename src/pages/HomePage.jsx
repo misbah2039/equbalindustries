@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom";
+import AboutPresenceMap from "../components/AboutPresenceMap";
+import { companyPresenceLocations } from "../data/companyPresenceLocations";
 import { blogPosts } from "../data/blogPosts";
 import {
+  companyLeadershipSpotlight,
   homeCoreServices,
+  leadershipTeam,
   partnerLogos,
   valuableCustomers,
   whyChooseUs,
 } from "../data/content";
 
 const HERO_SLIDES = [
-  // { src: "companylogo.jpeg", label: "Equbal — brand & trust" },
-  { src: "carworkshop.jpg", label: "Workshop & car care" },
-  { src: "carworkshop_1.jpg", label: "Service bays" },
-  { src: "carworkshop_2.jpg", label: "Paint & detailing" },
-  { src: "engineeringandfieldservices.jpg", label: "Industrial & field" },
-  { src: "educationandeventservices.jpg", label: "Events & training" },
-  // { src: "misbah.jpg", label: "Misbah International School" },
+  { src: "/carworkshop.jpg", label: "Workshop & car care" },
+  { src: "/carworkshop_1.jpg", label: "Service bays" },
+  { src: "/carworkshop_2.jpg", label: "Paint & detailing" },
+  { src: "/engineeringandfieldservices.jpg", label: "Industrial & field" },
+  { src: "/educationandeventservices.jpg", label: "Events & training" },
 ];
 
 const WHY_ICONS = ["⚙️", "📋", "⏱️", "🤝", "📍", "✅"];
@@ -28,6 +30,7 @@ function clamp50(text) {
 function HomePage() {
   const partnerSlides = [...partnerLogos, ...partnerLogos];
   const customerSlides = [...valuableCustomers, ...valuableCustomers];
+  const featuredLeader = leadershipTeam.find((member) => member.featured);
 
   return (
     <>
@@ -89,83 +92,139 @@ function HomePage() {
             </button>
           </div>
 
-          <div className="equbal-home-hero-floating text-center">
-            <div className="container py-3 py-md-4 py-lg-5 equbal-home-hero-bar-inner">
-              <p className="equbal-home-hero-brand mb-2 mx-auto">
-                {/* Equbal Industries &amp; Car Services */}
-              </p>
-              <p className="equbal-home-hero-kicker text-uppercase small fw-bold mb-2 mx-auto">
-                {/* Industrial strength · Automotive precision · Pan-India reach */}
-              </p>
-              <h1 className="equbal-home-hero-heading mb-2 mb-md-3 mx-auto">
-                One partner for workshop, field, and growth
-              </h1>
-              <p className="equbal-home-hero-lead mb-3 mb-md-4 mx-auto">
-                Car care, diagnostics, civil &amp; MEP support, events, and
-                trade — disciplined teams, clear reporting, offices in Lucknow,
-                Delhi, and Dehradun.
-              </p>
-              <div
-                className="equbal-home-hero-trust mb-3 mb-md-4"
-                aria-label="Service highlights"
-              >
-                <span className="equbal-home-hero-trust-item">
-                  Industrial &amp; field
-                </span>
-                <span className="equbal-home-hero-trust-sep" aria-hidden>
-                  ·
-                </span>
-                <span className="equbal-home-hero-trust-item">
-                  Car care &amp; diagnostics
-                </span>
-                <span className="equbal-home-hero-trust-sep" aria-hidden>
-                  ·
-                </span>
-                <span className="equbal-home-hero-trust-item">
-                  Events &amp; training
-                </span>
-                <span className="equbal-home-hero-trust-sep" aria-hidden>
-                  ·
-                </span>
-                <span className="equbal-home-hero-trust-item">
-                  Trade &amp; marketing
-                </span>
-              </div>
-              <div
-                className="equbal-hero-stats equbal-home-hero-stats mb-3 mb-md-4 justify-content-center mx-auto"
-                aria-label="Highlights"
-              >
-                <div className="equbal-hero-stat">
-                  <strong>3</strong>
-                  <span>Cities</span>
-                </div>
-                <div className="equbal-hero-stat">
-                  <strong>9–9</strong>
-                  <span>Support window</span>
-                </div>
-                <div className="equbal-hero-stat">
-                  <strong>∞</strong>
-                  <span>Repeat clients</span>
-                </div>
-              </div>
-              <div className="d-flex flex-wrap gap-2 justify-content-center">
-                <Link
-                  to="/contact"
-                  className="btn btn-primary btn-lg rounded-pill px-4 fw-semibold"
+          <div className="equbal-home-hero-floating">
+            <div className="container equbal-home-hero-floating-inner px-3 px-sm-4">
+              <div className="equbal-home-hero-panel text-center mx-auto">
+                <p className="equbal-home-hero-brand mb-2">
+                  Equbal Industries &amp; Car Services
+                </p>
+                <p className="equbal-home-hero-kicker text-uppercase small fw-bold mb-2">
+                  Industrial · Automotive · Pan-India
+                </p>
+                <h1 className="equbal-home-hero-heading mb-2 mb-md-3">
+                  One partner for workshop, field, and growth
+                </h1>
+                <p className="equbal-home-hero-lead mb-3 mb-md-4 mx-auto">
+                  Car care, diagnostics, civil &amp; MEP, events, and trade —
+                  clear reporting and teams in Lucknow, Delhi, and Dehradun.
+                  Pan-India projects where timelines match our capacity.
+                </p>
+                <div
+                  className="equbal-home-hero-trust mb-3 mb-md-4"
+                  aria-label="What we cover"
                 >
-                  Book service
-                </Link>
-                <Link
-                  to="/services"
-                  className="btn btn-outline-light btn-lg rounded-pill px-4 fw-semibold border-2"
+                  <span className="equbal-home-hero-trust-item">
+                    Industrial &amp; field
+                  </span>
+                  <span className="equbal-home-hero-trust-sep" aria-hidden>
+                    ·
+                  </span>
+                  <span className="equbal-home-hero-trust-item">
+                    Car care &amp; diagnostics
+                  </span>
+                  <span className="equbal-home-hero-trust-sep" aria-hidden>
+                    ·
+                  </span>
+                  <span className="equbal-home-hero-trust-item">
+                    Events &amp; training
+                  </span>
+                  <span className="equbal-home-hero-trust-sep" aria-hidden>
+                    ·
+                  </span>
+                  <span className="equbal-home-hero-trust-item">
+                    Trade &amp; marketing
+                  </span>
+                </div>
+                <div
+                  className="equbal-hero-stats equbal-home-hero-stats mb-3 mb-md-4 justify-content-center mx-auto"
+                  aria-label="Highlights"
                 >
-                  View services
-                </Link>
+                  <div className="equbal-hero-stat">
+                    <strong>3</strong>
+                    <span>Cities</span>
+                  </div>
+                  <div className="equbal-hero-stat">
+                    <strong>6–9</strong>
+                    <span>Support window</span>
+                  </div>
+                  <div className="equbal-hero-stat">
+                    <strong>∞</strong>
+                    <span>Repeat clients</span>
+                  </div>
+                </div>
+                <div className="d-flex flex-wrap gap-2 justify-content-center pb-1">
+                  <Link
+                    to="/contact"
+                    className="btn btn-primary btn-lg rounded-pill px-4 fw-semibold"
+                  >
+                    Book service
+                  </Link>
+                  <Link
+                    to="/services"
+                    className="btn btn-outline-light btn-lg rounded-pill px-4 fw-semibold border-2"
+                  >
+                    View services
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <section className="section equbal-home-owner bg-white border-bottom">
+        <div className="container">
+          <div className="row g-4 g-lg-5 align-items-center">
+            <div className="col-md-5 col-lg-4 mx-auto mx-md-0">
+              <div className="equbal-home-owner-photo rounded-4 overflow-hidden shadow-lg ratio ratio-3x4 bg-light">
+                <img
+                  src={
+                    featuredLeader?.imagePath ||
+                    companyLeadershipSpotlight.imagePath
+                  }
+                  alt={
+                    featuredLeader?.imageAlt ||
+                    featuredLeader?.name ||
+                    companyLeadershipSpotlight.imageAlt
+                  }
+                  className="object-fit-cover w-100 h-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div className="col-md-7 col-lg-8">
+              <p className="section-eyebrow mb-2">
+                {companyLeadershipSpotlight.eyebrow}
+              </p>
+              <h2 className="section-title section-title-accent mb-2">
+                Message from leadership
+              </h2>
+              {companyLeadershipSpotlight.ownerName?.trim() ? (
+                <p className="lead fs-6 fw-semibold text-primary mb-2">
+                  {companyLeadershipSpotlight.ownerName.trim()}
+                </p>
+              ) : null}
+              <p className="small text-uppercase fw-bold text-secondary letter-spacing mb-3">
+                {companyLeadershipSpotlight.roleLine}
+              </p>
+              {companyLeadershipSpotlight.paragraphs.map((para, idx) => (
+                <p
+                  className="text-secondary lh-lg mb-3 equbal-readability-text"
+                  key={`owner-p-${idx}`}
+                >
+                  {para}
+                </p>
+              ))}
+              <Link
+                to="/about"
+                className="btn btn-outline-primary rounded-pill px-4 fw-semibold"
+              >
+                Company profile &amp; leadership →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="section section-alt equbal-why-section">
         <div className="container">
@@ -219,7 +278,9 @@ function HomePage() {
                   </span>
                   <h4>{service.title}</h4>
                   <p>{service.description}</p>
-                  <span className="home-service-cta">Fees &amp; detail →</span>
+                  <span className="home-service-cta home-service-cta--highlight">
+                    Fees &amp; detail →
+                  </span>
                 </article>
               </Link>
             ))}
@@ -242,6 +303,87 @@ function HomePage() {
               All services
             </Link>
           </p>
+        </div>
+      </section>
+
+      <section className="section equbal-join-band text-white py-5">
+        <div className="container">
+          <div className="row align-items-center g-4 g-lg-5">
+            <div className="col-lg-7">
+              <p className="text-warning text-uppercase small fw-bold letter-spacing mb-2">
+                Partner with Equbal
+              </p>
+              <h2 className="h3 fw-bold mb-3 text-white">
+                Ready to work with Equbal?
+              </h2>
+              <p className="text-white-50 mb-3 equbal-join-lead">
+                Institutions, vendors, trainers, field crews, and fleet owners —
+                if you value disciplined execution, clear reporting, and fair
+                commercials, we are easy to engage and build long-term
+                programmes with.
+              </p>
+              <ul className="list-unstyled small text-white-50 mb-0 equbal-join-list">
+                <li className="d-flex gap-2 mb-2">
+                  <span className="text-warning" aria-hidden>
+                    ✓
+                  </span>
+                  <span>
+                    Joint delivery: workshops, industrial sites, events, and
+                    campaigns.
+                  </span>
+                </li>
+                <li className="d-flex gap-2 mb-2">
+                  <span className="text-warning" aria-hidden>
+                    ✓
+                  </span>
+                  <span>
+                    Transparent fees — each service line has a dedicated detail
+                    page.
+                  </span>
+                </li>
+                <li className="d-flex gap-2">
+                  <span className="text-warning" aria-hidden>
+                    ✓
+                  </span>
+                  <span>
+                    One routing desk — Lucknow, Delhi, Dehradun, plus pan-India
+                    coordination.
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div className="col-lg-5">
+              <div className="card border-0 shadow-lg equbal-join-card bg-white text-dark p-4 p-lg-5">
+                <h3 className="h5 fw-bold mb-3">Next step</h3>
+                <p className="small text-secondary mb-4">
+                  Send a short intro — city, service line, and timeline. We
+                  route it to the right lead within one to two working days.
+                </p>
+                <div className="d-grid gap-2">
+                  <Link
+                    to="/contact"
+                    className="btn btn-warning btn-lg rounded-pill fw-semibold"
+                  >
+                    Contact / partnership
+                  </Link>
+                  <a
+                    className="btn btn-outline-dark rounded-pill"
+                    href="mailto:equbalindustries@gmail.com?subject=Partnership%20with%20Equbal"
+                  >
+                    Email: equbalindustries@gmail.com
+                  </a>
+                  <a
+                    className="btn btn-outline-dark rounded-pill"
+                    href="https://wa.me/917518441997"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -385,6 +527,60 @@ function HomePage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+      <section className="py-5 border-top border-bottom bg-white">
+        <div className="container">
+          <h2 className="h3 fw-bold text-dark text-center mb-2">
+            Presence &amp; reach
+          </h2>
+          <p
+            className="text-body-secondary text-center mb-4 mx-auto"
+            style={{ maxWidth: "40rem" }}
+          >
+            Head offices in <strong className="text-dark">Lucknow</strong>,{" "}
+            <strong className="text-dark">Delhi</strong>, and{" "}
+            <strong className="text-dark">Dehradun</strong> — we support{" "}
+            <strong className="text-dark">pan-India</strong> projects and
+            mobility programmes where scope and timelines align with our teams.
+          </p>
+          <div className="mb-4">
+            <AboutPresenceMap />
+          </div>
+          <div className="row g-3 mb-1">
+            {companyPresenceLocations.slice(0, 3).map((loc) => (
+              <div className="col-md-4" key={loc.id}>
+                <article className="card h-100 border-0 shadow-sm">
+                  <div className="card-body">
+                    <h3 className="h6 fw-bold mb-1">{loc.name}</h3>
+                    <p className="small text-secondary mb-0">{loc.role}</p>
+                  </div>
+                </article>
+              </div>
+            ))}
+          </div>
+          <p className="small text-center text-muted mt-3 mb-0">
+            Indicative location cards; full map and detailed list are available
+            on the About page.
+          </p>
+        </div>
+      </section>
+      <section className="py-5 bg-dark text-white">
+        <div className="container text-center py-3">
+          <h2 className="h4 fw-bold mb-3 text-white">Next step</h2>
+          <p
+            className="text-white-50 small mb-4 mx-auto"
+            style={{ maxWidth: "28rem" }}
+          >
+            Tell us the city, the asset (vehicle / site / event), and your
+            window — we will route it to the right desk in one go.
+          </p>
+          <Link
+            to="/contact"
+            className="btn btn-warning btn-lg rounded-pill fw-semibold px-4"
+          >
+            Contact Equbal
+          </Link>
         </div>
       </section>
     </>

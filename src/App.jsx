@@ -14,6 +14,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ServiceLinePage from "./pages/ServiceLinePage";
 import ServicesPage from "./pages/ServicesPage";
+import SocialContentPage from "./pages/SocialContentPage";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/customers" element={<CustomerPage />} />
+        <Route path="/social-content" element={<SocialContentPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<Navigate to="/login" replace />} />
         <Route

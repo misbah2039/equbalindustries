@@ -8,6 +8,7 @@ const baseNavItems = [
   { label: "About", path: "/about" },
   { label: "Services", path: "/services" },
   { label: "Equipment", path: "/equipment" },
+  { label: "Social", path: "/social-content" },
   { label: "Customers", path: "/customers" },
   { label: "Blog", path: "/blog" },
   { label: "Contact", path: "/contact" },
@@ -16,7 +17,7 @@ const baseNavItems = [
 function Navbar() {
   const [showLogoFallback, setShowLogoFallback] = useState(false);
   const { isAuthenticated, logout } = useAuth();
-  const logoPath = "companylogos.jpg";
+  const logoPath = "/companylogomain.png";
 
   const closeMobileMenu = useCallback(() => {
     if (typeof window === "undefined") return;

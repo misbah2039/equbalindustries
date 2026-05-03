@@ -7,12 +7,13 @@ export const equipmentCategories = [
   "Field & industrial",
 ];
 
+/** Root-relative paths — files in `public/` */
 const imgs = [
-  "carworkshop.jpeg",
-  "carworkshop_1.jpeg",
-  "carworkshop_2.jpeg",
-  "carworkshop_3.jpeg",
-  "engineeringandfieldservices.jpeg",
+  "/carworkshop.jpg",
+  "/carworkshop_1.jpg",
+  "/carworkshop_2.jpg",
+  "/engineeringandfieldservices.jpg",
+  "/educationandeventservices.jpg",
 ];
 
 const baseItems = [

@@ -42,10 +42,11 @@ export const serviceCategories = [
   {
     id: "engineering-field",
     title: "Engineering and Field Services",
-    tagline: "Execution on the ground — construction, HVAC, mobility, and rentals.",
+    tagline:
+      "Execution on the ground — construction, HVAC, mobility, and rentals.",
     overview:
       "We plan and deliver field-led work for industrial and infrastructure clients: civil and building support, mechanical systems, automotive repair bays, and equipment on rent when you need scale without capital lock-in.",
-    imagePath: "engineeringandfieldservices.jpeg",
+    imagePath: "/engineeringandfieldservices.jpg",
     imageAlt: "Engineering and field services",
     applicantPageIntro:
       "Applicants and procurement teams can review indicative commercial terms below, then request a written estimate for the exact site or fleet scope.",
@@ -67,7 +68,8 @@ export const serviceCategories = [
       },
       {
         label: "Equipment on rent (small tools to bay lifts)",
-        detail: "Daily / weekly slabs — see Equipment page or ask for a bundle quote.",
+        detail:
+          "Daily / weekly slabs — see Equipment page or ask for a bundle quote.",
       },
     ],
     items: [
@@ -88,10 +90,11 @@ export const serviceCategories = [
   {
     id: "education-event",
     title: "Education and Event Services",
-    tagline: "Learning programmes, seminars, and celebrations — run professionally.",
+    tagline:
+      "Learning programmes, seminars, and celebrations — run professionally.",
     overview:
       "From structured courses and online training to seminars and social events, we handle planning, logistics, and on-day execution so your audience stays focused on the content — not the chaos behind it.",
-    imagePath: "educationandeventservices.jpeg",
+    imagePath: "/educationandeventservices.jpg",
     imageAlt: "Education and event services",
     applicantPageIntro:
       "Course applicants, institutions, and event hosts can review owner fees and participant charges below. Final amounts are confirmed in writing at registration / contract stage.",
@@ -101,11 +104,13 @@ export const serviceCategories = [
     ownerFeesRows: [
       {
         label: "Institution tie-up — annual catalogue listing",
-        detail: "₹ 9,999 + GST (includes two featured programme slots on our portal).",
+        detail:
+          "₹ 9,999 + GST (includes two featured programme slots on our portal).",
       },
       {
         label: "Per-batch facilitation (courses & certifications)",
-        detail: "8–12% of published batch fee (MOU-based; lower % for non-profit schools).",
+        detail:
+          "8–12% of published batch fee (MOU-based; lower % for non-profit schools).",
       },
       {
         label: "Dedicated event production retainer (seminars / launches)",
@@ -124,11 +129,13 @@ export const serviceCategories = [
       },
       {
         label: "Half-day parent orientation (school partner events)",
-        detail: "₹ 499 per family (waived when fully sponsored by host school).",
+        detail:
+          "₹ 499 per family (waived when fully sponsored by host school).",
       },
       {
         label: "Online certification prep (8 live sessions)",
-        detail: "₹ 3,999 incl. study kit download (batch start dates on enquiry).",
+        detail:
+          "₹ 3,999 incl. study kit download (batch start dates on enquiry).",
       },
     ],
     items: [
@@ -150,7 +157,7 @@ export const serviceCategories = [
     tagline: "Reach, reputation, and cross-border trade — in one stack.",
     overview:
       "Creative and digital campaigns, performance-led social presence, and import–export agency support for businesses that want to grow in India and beyond without juggling ten different vendors.",
-    imagePath: "marketingandtradeservices.jpeg",
+    imagePath: "/companylogomain.png",
     imageAlt: "Marketing and trade services",
     applicantPageIntro:
       "Brands and importers can use the slabs below for budgeting. Campaigns and shipments are always scoped in a formal proposal before billing.",
@@ -160,11 +167,13 @@ export const serviceCategories = [
     ownerFeesRows: [
       {
         label: "Monthly social + content retainer (SMB)",
-        detail: "From ₹29,999 + GST (4 reels + 12 statics + community management).",
+        detail:
+          "From ₹29,999 + GST (4 reels + 12 statics + community management).",
       },
       {
         label: "Performance marketing management fee",
-        detail: "12–15% of ad spend (min ₹8,000 / month) + creative add-ons as quoted.",
+        detail:
+          "12–15% of ad spend (min ₹8,000 / month) + creative add-ons as quoted.",
       },
       {
         label: "Import–export documentation & liaison (per shipment)",
@@ -172,7 +181,8 @@ export const serviceCategories = [
       },
       {
         label: "Rush creative (48h turnaround)",
-        detail: "+30% on standard creative fee card — subject to team availability.",
+        detail:
+          "+30% on standard creative fee card — subject to team availability.",
       },
     ],
     items: [
@@ -193,25 +203,40 @@ export function getServiceCategoryBySlug(slug) {
   return serviceCategories.find((c) => c.id === slug) ?? null;
 }
 
+/**
+ * Homepage “owner / leadership” copy — add ownerName when you want a named line.
+ */
+export const companyLeadershipSpotlight = {
+  eyebrow: "Leadership",
+  ownerName: "",
+  roleLine: "Founder-led vision · Workshop roots · Pan-India coordination",
+  paragraphs: [
+    "Equbal Industries & Car Services is led from the ground up: leadership that grew out of workshop bays, industrial sites, and customer vehicles — not slides alone. We stand behind clear milestones, trained teams, and documents that stand up in tenders and fleet reviews.",
+    "Offices in Lucknow, Delhi, and Dehradun anchor day-to-day routing; pan-India programmes run where timeline and scope fit our crews. If you want a partner who speaks both wrench and contract language, you will find that posture here.",
+  ],
+  imagePath: "/ceo.jpeg",
+  imageAlt: "Equbal Industries leadership",
+};
+
 export const leadershipTeam = [
   {
     name: "Chief Executive Officer (CEO)",
     role: "Strategic leadership and growth",
-    imagePath: "ceo.jpeg",
+    imagePath: "/ceo.jpeg",
     imageAlt: "Chief Executive Officer photo",
     featured: true,
   },
   {
     name: "Managing Director (MD)",
     role: "Operations and execution oversight",
-    imagePath: "ceo.jpeg",
+    imagePath: "/ceo.jpeg",
     imageAlt: "Managing Director photo",
     featured: false,
   },
   {
     name: "Operational Manager",
     role: "Day-to-day workflow and service coordination",
-    imagePath: "operation.jpeg",
+    imagePath: "/carworkshop.jpg",
     imageAlt: "Operational Manager photo",
     featured: false,
   },
@@ -248,139 +273,139 @@ export const industries = [
 export const gallerySamples = [
   {
     title: "Workshop overview area",
-    imagePath: "carworkshop.jpeg",
+    imagePath: "/carworkshop.jpg",
   },
   {
     title: "Service bay operations",
-    imagePath: "carworkshop_1.jpeg",
+    imagePath: "/carworkshop_1.jpg",
   },
   {
     title: "Paint and detailing section",
-    imagePath: "carworkshop_2.jpeg",
+    imagePath: "/carworkshop_2.jpg",
   },
   {
     title: "Engine diagnostics in progress",
-    imagePath: "carworkshop_3.jpeg",
+    imagePath: "/engineeringandfieldservices.jpg",
   },
   {
     title: "Before and after service result",
-    imagePath: "carworkshop_2.jpeg",
+    imagePath: "/carworkshop_2.jpg",
   },
   {
     title: "Customer delivery moments",
-    imagePath: "carworkshop_1.jpeg",
+    imagePath: "/carworkshop_1.jpg",
   },
   {
     title: "Workshop overview area",
-    imagePath: "carworkshop.jpeg",
+    imagePath: "/carworkshop.jpg",
   },
   {
     title: "Service bay operations",
-    imagePath: "carworkshop_1.jpeg",
+    imagePath: "/carworkshop_1.jpg",
   },
   {
     title: "Paint and detailing section",
-    imagePath: "carworkshop_2.jpeg",
+    imagePath: "/carworkshop_2.jpg",
   },
   {
     title: "Engine diagnostics in progress",
-    imagePath: "carworkshop_3.jpeg",
+    imagePath: "/engineeringandfieldservices.jpg",
   },
   {
     title: "Before and after service result",
-    imagePath: "carworkshop_2.jpeg",
+    imagePath: "/carworkshop_2.jpg",
   },
   {
     title: "Customer delivery moments",
-    imagePath: "carworkshop_1.jpeg",
+    imagePath: "/carworkshop_1.jpg",
   },
   {
     title: "Workshop overview area",
-    imagePath: "carworkshop.jpeg",
+    imagePath: "/carworkshop.jpg",
   },
   {
     title: "Service bay operations",
-    imagePath: "carworkshop_1.jpeg",
+    imagePath: "/carworkshop_1.jpg",
   },
   {
     title: "Paint and detailing section",
-    imagePath: "carworkshop_2.jpeg",
+    imagePath: "/carworkshop_2.jpg",
   },
   {
     title: "Engine diagnostics in progress",
-    imagePath: "carworkshop_3.jpeg",
+    imagePath: "/engineeringandfieldservices.jpg",
   },
   {
     title: "Before and after service result",
-    imagePath: "carworkshop_2.jpeg",
+    imagePath: "/carworkshop_2.jpg",
   },
   {
     title: "Customer delivery moments",
-    imagePath: "carworkshop_1.jpeg",
+    imagePath: "/carworkshop_1.jpg",
   },
 ];
 
 export const partnerLogos = [
-  { name: "Partner One", imagePath: "partners.jpeg" },
-  { name: "Partner Two", imagePath: "partners.jpeg" },
-  { name: "Partner Three", imagePath: "partners.jpeg" },
-  { name: "Partner Four", imagePath: "partners.jpeg" },
-  { name: "Partner Five", imagePath: "partners.jpeg" },
+  { name: "Partner One", imagePath: "/companylogomain.png" },
+  { name: "Partner Two", imagePath: "/companylogo.png" },
+  { name: "Partner Three", imagePath: "/companylogos.jpg" },
+  { name: "Partner Four", imagePath: "/companylogomain.png" },
+  { name: "Partner Five", imagePath: "/companylogo.png" },
 ];
 
 export const valuableCustomers = [
   {
     name: "Customer One",
-    imagePath: "customers.jpeg",
+    imagePath: "/ceo.jpeg",
     description: "Long-term client in engineering and service operations.",
     rating: 5,
     shortQuote: "On-time delivery every single phase of our plant upgrade.",
   },
   {
     name: "Customer Two",
-    imagePath: "customers_2.jpeg",
+    imagePath: "/carworkshop.jpg",
     description: "Trusted customer for event and educational activities.",
     rating: 4.5,
     shortQuote: "Seminar logistics were flawless — our delegates noticed.",
   },
   {
     name: "Customer Three",
-    imagePath: "customers_3.jpeg",
+    imagePath: "/carworkshop_1.jpg",
     description: "Business partner for marketing and trade services.",
     rating: 5,
     shortQuote: "Clear reporting; campaigns finally match ground reality.",
   },
   {
     name: "Customer Four",
-    imagePath: "customers_2.jpeg",
+    imagePath: "/engineeringandfieldservices.jpg",
     description: "Business partner for marketing and trade services.",
     rating: 4,
     shortQuote: "Fleet downtime dropped after their maintenance schedule.",
   },
   {
     name: "Customer Five",
-    imagePath: "customers.jpeg",
+    imagePath: "/educationandeventservices.jpg",
     description: "Business partner for marketing and trade services.",
     rating: 5,
     shortQuote: "Professional team — they treat our workshop like their own.",
   },
   {
     name: "Customer Six",
-    imagePath: "customers_3.jpeg",
+    imagePath: "/carworkshop_2.jpg",
     description: "Business partner for marketing and trade services.",
     rating: 4.5,
     shortQuote: "Import paperwork handled without us chasing daily updates.",
   },
   {
     name: "Customer Seven",
-    imagePath: "customers_2.jpeg",
+    imagePath: "/download.jpeg",
     description: "Business partner for marketing and trade services.",
     rating: 4,
     shortQuote: "Solid HVAC support during our campus expansion project.",
   },
   {
     name: "Customer Eight",
-    imagePath: "customers.jpeg",
+    imagePath: "/companylogomain.png",
     description: "Business partner for marketing and trade services.",
     rating: 5,
     shortQuote: "Transparent billing — no surprise line items at month end.",

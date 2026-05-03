@@ -7,7 +7,7 @@ export const blogPosts = [
       "Battery, coolant, tyres, and lights — what we inspect before peak season so downtime stays low.",
     date: "2026-01-18",
     readTime: "4 min read",
-    imagePath: "carworkshop.jpeg",
+    imagePath: "/carworkshop.jpg",
     tag: "Car services",
     paragraphs: [
       "Cold mornings stress batteries and thick oil — we start every winter prep with a load test, terminal clean, and charging system check so your first start of the day is predictable.",
@@ -22,7 +22,7 @@ export const blogPosts = [
       "How Equbal aligns field teams with PPE, permits, and clear communication on industrial projects.",
     date: "2025-12-06",
     readTime: "5 min read",
-    imagePath: "engineeringandfieldservices.jpeg",
+    imagePath: "/engineeringandfieldservices.jpg",
     tag: "Industry",
     paragraphs: [
       "Industrial sites reward consistency: toolbox talks, visible permits, and a single point of contact for the client’s safety officer reduce friction and keep work moving.",
@@ -37,7 +37,7 @@ export const blogPosts = [
       "From venue flow to AV checks — lessons from our education and event services team.",
     date: "2025-11-22",
     readTime: "3 min read",
-    imagePath: "educationandeventservices.jpeg",
+    imagePath: "/educationandeventservices.jpg",
     tag: "Events",
     paragraphs: [
       "Engagement starts before the keynote: registration flow, seating sightlines, and breakout room acoustics matter as much as the slide deck.",

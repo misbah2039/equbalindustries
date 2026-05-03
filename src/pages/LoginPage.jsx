@@ -55,7 +55,8 @@ function LoginPage() {
                     <h2 className="h4 fw-bold text-dark mb-1">Administrator</h2>
                     <p className="text-secondary small mb-4">
                       Use the admin email and password configured for this build
-                      (see <code className="small">src/auth/constants.js</code>).
+                      (see <code className="small">src/auth/constants.js</code>
+                      ).
                     </p>
                     <form onSubmit={handleLogin}>
                       {error ? (

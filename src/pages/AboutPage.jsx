@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import AboutPresenceMap from "../components/AboutPresenceMap";
 import { useAuth } from "../context/AuthContext";
+import { companyPresenceLocations } from "../data/companyPresenceLocations";
 import { companyDocuments } from "../data/companyDocuments";
 import { leadershipTeam } from "../data/content";
 
@@ -138,36 +140,6 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="py-5 border-top border-bottom bg-white">
-        <div className="container">
-          <h2 className="h3 fw-bold text-dark text-center mb-2">
-            Presence &amp; reach
-          </h2>
-          <p
-            className="text-body-secondary text-center mb-4 mx-auto"
-            style={{ maxWidth: "40rem" }}
-          >
-            Head offices in <strong className="text-dark">Lucknow</strong>,{" "}
-            <strong className="text-dark">Delhi</strong>, and{" "}
-            <strong className="text-dark">Dehradun</strong> — we support{" "}
-            <strong className="text-dark">pan-India</strong> projects and
-            mobility programmes where scope and timelines align with our teams.
-          </p>
-          <div className="equbal-map-frame rounded-4 overflow-hidden shadow-sm border">
-            <iframe
-              title="India — service coverage map"
-              className="equbal-map-iframe"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=65%2C6%2C98%2C38&amp;layer=mapnik"
-              loading="lazy"
-            />
-          </div>
-          <p className="small text-center text-muted mt-3 mb-0">
-            Map data © OpenStreetMap contributors — indicative coverage, not a
-            legal boundary.
-          </p>
-        </div>
-      </section>
-
       <section className="py-5 equbal-surface-panel">
         <div className="container">
           <h2 className="h3 fw-bold text-dark text-center mb-4">
@@ -265,10 +237,80 @@ function AboutPage() {
           </div>
         </div>
       </section>
-
+      <section className="py-5 border-top border-bottom bg-white">
+        <div className="container">
+          <h2 className="h3 fw-bold text-dark text-center mb-2">
+            Presence &amp; reach
+          </h2>
+          <p
+            className="text-body-secondary text-center mb-2 mx-auto"
+            style={{ maxWidth: "40rem" }}
+          >
+            Head offices in <strong className="text-dark">Lucknow</strong>,{" "}
+            <strong className="text-dark">Delhi</strong>, and{" "}
+            <strong className="text-dark">Dehradun</strong> — we support{" "}
+            <strong className="text-dark">pan-India</strong> projects and
+            mobility programmes where scope and timelines align with our teams.
+          </p>
+          <p
+            className="small text-center text-muted mb-4 mx-auto"
+            style={{ maxWidth: "42rem" }}
+          >
+            Map pins below use <strong>dummy latitude / longitude</strong> for
+            ten sample points — replace with your real coordinates in{" "}
+            <code className="small">src/data/companyPresenceLocations.js</code>.
+          </p>
+          <AboutPresenceMap />
+          <div className="table-responsive mt-4 rounded-3 border shadow-sm">
+            <table className="table table-sm table-striped align-middle mb-0">
+              <thead className="table-light">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Latitude</th>
+                  <th scope="col">Longitude</th>
+                  <th scope="col" className="text-end">
+                    Open map
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {companyPresenceLocations.map((loc, i) => (
+                  <tr key={loc.id}>
+                    <td>{i + 1}</td>
+                    <td className="fw-semibold text-dark">{loc.name}</td>
+                    <td className="small text-secondary">{loc.role}</td>
+                    <td>
+                      <code className="small">{loc.lat.toFixed(4)}</code>
+                    </td>
+                    <td>
+                      <code className="small">{loc.lon.toFixed(4)}</code>
+                    </td>
+                    <td className="text-end">
+                      <a
+                        className="small fw-semibold text-nowrap"
+                        href={`https://www.openstreetmap.org/?mlat=${loc.lat}&mlon=${loc.lon}#map=12/${loc.lat}/${loc.lon}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        OSM →
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="small text-center text-muted mt-3 mb-0">
+            Map tiles © OpenStreetMap contributors — indicative points, not a
+            legal boundary.
+          </p>
+        </div>
+      </section>
       <section className="py-5 bg-dark text-white">
         <div className="container text-center py-3">
-          <h2 className="h4 fw-bold mb-3">Next step</h2>
+          <h2 className="h4 fw-bold mb-3 text-white">Next step</h2>
           <p
             className="text-white-50 small mb-4 mx-auto"
             style={{ maxWidth: "28rem" }}

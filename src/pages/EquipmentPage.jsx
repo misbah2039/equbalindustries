@@ -73,8 +73,13 @@ function EquipmentPage() {
             <p className="text-primary fw-semibold small text-uppercase letter-spacing mb-2">
               Workshop &amp; field
             </p>
-            <h1 className="display-6 fw-bold text-dark mb-3">Equipment we provide</h1>
-            <p className="text-secondary mb-0 mx-auto equbal-readability-text" style={{ maxWidth: "44rem" }}>
+            <h1 className="display-6 fw-bold text-dark mb-3">
+              Equipment we provide
+            </h1>
+            <p
+              className="text-secondary mb-0 mx-auto equbal-readability-text"
+              style={{ maxWidth: "44rem" }}
+            >
               Catalogue below lists tools and assets we work with. If you need
               specific equipment for a job, site, or workshop, tell us scope and
               timeline — we can supply, mobilise, or source as part of the
@@ -164,8 +169,7 @@ function EquipmentPage() {
                   {(page - 1) * pageSize + 1}–
                   {Math.min(page * pageSize, filtered.length)}
                 </strong>{" "}
-                of <strong>{filtered.length}</strong> · catalogue{" "}
-                <strong>{equipmentItems.length}</strong> items
+                of <strong>{filtered.length}</strong>
               </>
             )}
           </p>
@@ -243,7 +247,9 @@ function EquipmentPage() {
               Reset filters
             </button>
           </div>
-        ) : totalPages > 1 ? (
+        ) : null}
+
+        {totalPages > 1 ? (
           <nav
             className="mt-4 d-flex flex-wrap justify-content-center gap-2"
             aria-label="Equipment pagination"

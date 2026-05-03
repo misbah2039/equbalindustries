@@ -7,7 +7,6 @@ import { AuthProvider } from "./context/AuthContext";
 import App from "./App.jsx";
 import "./equbal-theme.css";
 import "./index.css";
-import "./equbal-design.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
