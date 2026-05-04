@@ -181,7 +181,18 @@ function AboutPage() {
               </div>
             </div>
             <div className="col-lg-7">
-              <h2 className="h3 fw-bold text-dark mb-4">Leadership</h2>
+              <div className="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+                <div>
+                  <h2 className="h3 fw-bold text-dark mb-1">Leadership</h2>
+                  <p className="small text-body-secondary mb-0">
+                    Core team with domain expertise, practical degree
+                    background, and hands-on execution experience.
+                  </p>
+                </div>
+                <span className="badge text-bg-light border rounded-pill px-3 py-2">
+                  Team leaders: {leadershipTeam.length}
+                </span>
+              </div>
               <div className="row g-3">
                 {featuredLeader ? (
                   <div className="col-12">
@@ -205,16 +216,50 @@ function AboutPage() {
                           <h3 className="h5 fw-bold mb-1">
                             {featuredLeader.name}
                           </h3>
-                          <p className="small text-body-secondary mb-0">
+                          <p className="small text-body-secondary mb-2">
                             {featuredLeader.role}
                           </p>
+                          <div className="equbal-lead-meta">
+                            <span className="equbal-lead-chip">
+                              Degree: {featuredLeader.degree}
+                            </span>
+                            <span className="equbal-lead-chip">
+                              Experience: {featuredLeader.experience}
+                            </span>
+                          </div>
+                          {featuredLeader.degreeList?.length ? (
+                            <div className="equbal-lead-degree-box mt-3">
+                              <p className="small fw-semibold mb-2">
+                                Owner qualifications
+                              </p>
+                              <ul className="small mb-0">
+                                {featuredLeader.degreeList.map((deg) => (
+                                  <li key={deg}>{deg}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : null}
+                          {featuredLeader.certifications?.length ? (
+                            <div className="equbal-lead-cert-wrap mt-3">
+                              <p className="small fw-semibold mb-2">
+                                Additional certifications
+                              </p>
+                              <div className="equbal-lead-meta">
+                                {featuredLeader.certifications.map((cert) => (
+                                  <span className="equbal-lead-chip" key={cert}>
+                                    {cert}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          ) : null}
                         </div>
                       </div>
                     </article>
                   </div>
                 ) : null}
                 {supportLeaders.map((member) => (
-                  <div className="col-md-6" key={member.name}>
+                  <div className="col-md-6 col-xl-4" key={member.name}>
                     <article className="equbal-lead-card h-100">
                       <div className="ratio ratio-4x3 bg-light rounded-top-3">
                         <img
@@ -225,9 +270,31 @@ function AboutPage() {
                       </div>
                       <div className="p-3">
                         <h3 className="h6 fw-bold mb-1">{member.name}</h3>
-                        <p className="small text-body-secondary mb-0">
+                        <p className="small text-body-secondary mb-2">
                           {member.role}
                         </p>
+                        <div className="equbal-lead-meta">
+                          <span className="equbal-lead-chip">
+                            Degree: {member.degree}
+                          </span>
+                          <span className="equbal-lead-chip">
+                            Experience: {member.experience}
+                          </span>
+                        </div>
+                        {member.certifications?.length ? (
+                          <details className="mt-2">
+                            <summary className="small fw-semibold text-primary">
+                              Certifications
+                            </summary>
+                            <div className="equbal-lead-meta mt-2">
+                              {member.certifications.map((cert) => (
+                                <span className="equbal-lead-chip" key={cert}>
+                                  {cert}
+                                </span>
+                              ))}
+                            </div>
+                          </details>
+                        ) : null}
                       </div>
                     </article>
                   </div>
@@ -252,14 +319,14 @@ function AboutPage() {
             <strong className="text-dark">pan-India</strong> projects and
             mobility programmes where scope and timelines align with our teams.
           </p>
-          <p
+          {/* <p
             className="small text-center text-muted mb-4 mx-auto"
             style={{ maxWidth: "42rem" }}
           >
             Map pins below use <strong>dummy latitude / longitude</strong> for
             ten sample points — replace with your real coordinates in{" "}
             <code className="small">src/data/companyPresenceLocations.js</code>.
-          </p>
+          </p> */}
           <AboutPresenceMap />
           <div className="table-responsive mt-4 rounded-3 border shadow-sm">
             <table className="table table-sm table-striped align-middle mb-0">

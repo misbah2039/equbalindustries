@@ -2591,6 +2591,44 @@ h6,
   box-shadow: 0 10px 36px rgba(15, 23, 42, 0.1);
 }
 
+.equbal-lead-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.equbal-lead-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+}
+
+.equbal-lead-degree-box {
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  background: rgba(255, 247, 237, 0.7);
+  border-radius: 0.75rem;
+  padding: 0.7rem 0.85rem;
+}
+
+.equbal-lead-degree-box ul {
+  padding-left: 1.1rem;
+}
+
+.equbal-lead-degree-box li + li {
+  margin-top: 0.2rem;
+}
+
+.equbal-lead-cert-wrap {
+  border-top: 1px dashed rgba(148, 163, 184, 0.5);
+  padding-top: 0.7rem;
+}
+
 /* Auth tabs on login page */
 .equbal-auth-tabs .btn {
   flex: 1;

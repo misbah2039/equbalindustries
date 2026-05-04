@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import AboutPresenceMap from "../components/AboutPresenceMap";
 import { companyPresenceLocations } from "../data/companyPresenceLocations";
@@ -31,6 +32,21 @@ function HomePage() {
   const partnerSlides = [...partnerLogos, ...partnerLogos];
   const customerSlides = [...valuableCustomers, ...valuableCustomers];
   const featuredLeader = leadershipTeam.find((member) => member.featured);
+  const ownerPhotoCandidates = useMemo(() => {
+    const primary =
+      featuredLeader?.imagePath ||
+      companyLeadershipSpotlight.imagePath ||
+      "/owner.jpeg";
+    return [
+      ...new Set([
+        primary,
+        "/owner.jpeg",
+        "/download.jpeg",
+        "/carworkshop.jpg",
+      ]),
+    ];
+  }, [featuredLeader]);
+  const [ownerPhotoIndex, setOwnerPhotoIndex] = useState(0);
 
   return (
     <>
@@ -174,14 +190,11 @@ function HomePage() {
 
       <section className="section equbal-home-owner bg-white border-bottom">
         <div className="container">
-          <div className="row g-4 g-lg-5 align-items-center">
+          <div className="row g-4 g-lg-5 ">
             <div className="col-md-5 col-lg-4 mx-auto mx-md-0">
-              <div className="equbal-home-owner-photo rounded-4 overflow-hidden shadow-lg ratio ratio-3x4 bg-light">
+              <div className="equbal-home-owner-photo rounded-4 overflow-hidden w-100 h-100 shadow-lg bg-light">
                 <img
-                  src={
-                    featuredLeader?.imagePath ||
-                    companyLeadershipSpotlight.imagePath
-                  }
+                  src={ownerPhotoCandidates[ownerPhotoIndex]}
                   alt={
                     featuredLeader?.imageAlt ||
                     featuredLeader?.name ||
@@ -189,6 +202,12 @@ function HomePage() {
                   }
                   className="object-fit-cover w-100 h-100"
                   loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    setOwnerPhotoIndex((prev) =>
+                      Math.min(prev + 1, ownerPhotoCandidates.length - 1),
+                    );
+                  }}
                 />
               </div>
             </div>
@@ -206,6 +225,15 @@ function HomePage() {
               ) : null}
               <p className="small text-uppercase fw-bold text-secondary letter-spacing mb-3">
                 {companyLeadershipSpotlight.roleLine}
+              </p>
+              <p className="small text-dark fw-semibold mb-1">
+                {companyLeadershipSpotlight.ownerDegreeLine}
+              </p>
+              <p className="small text-secondary mb-1">
+                {companyLeadershipSpotlight.ownerCertificationLine}
+              </p>
+              <p className="small text-secondary mb-3">
+                Experience: {companyLeadershipSpotlight.ownerExperienceLine}
               </p>
               {companyLeadershipSpotlight.paragraphs.map((para, idx) => (
                 <p
@@ -459,7 +487,7 @@ function HomePage() {
             <div>
               <p className="section-eyebrow">Network</p>
               <h3 className="section-title section-title-accent">
-                Partner logos
+                Our Partner
               </h3>
             </div>
           </div>
@@ -475,7 +503,7 @@ function HomePage() {
                   key={`${partner.name}-${index}`}
                 >
                   <img src={partner.imagePath} alt="" />
-                  <p>{partner.name}</p>
+                  {/* <p>{partner.name}</p> */}
                 </div>
               ))}
             </div>
@@ -492,20 +520,15 @@ function HomePage() {
                 What customers say
               </h3>
             </div>
-            <Link to="/customers" className="inline-link home-customers-link">
-              Full profiles
-            </Link>
           </div>
           <p className="page-intro home-customers-intro">
-            Ratings and 50-character quotes — tap through to the customers page
-            for more.
+            Ratings and 50-character quotes from customers across service lines.
           </p>
 
           <div className="customers-slider">
             <div className="customers-track">
               {customerSlides.map((customer, index) => (
-                <Link
-                  to="/customers"
+                <div
                   className="customer-slide-card"
                   key={`${customer.name}-${index}`}
                 >
@@ -515,7 +538,6 @@ function HomePage() {
                     className="customer-slide-image"
                   />
                   <div className="customer-slide-body">
-                    <h4>{customer.name}</h4>
                     <p className="customer-slide-quote">
                       “{clamp50(customer.shortQuote)}”
                     </p>
@@ -523,12 +545,13 @@ function HomePage() {
                       ★ {customer.rating?.toFixed(1) ?? "5.0"} / 5
                     </p>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
+
       <section className="py-5 border-top border-bottom bg-white">
         <div className="container">
           <h2 className="h3 fw-bold text-dark text-center mb-2">

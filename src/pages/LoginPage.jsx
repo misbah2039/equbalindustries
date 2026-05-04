@@ -35,9 +35,11 @@ function LoginPage() {
                     <p className="text-warning text-uppercase small fw-bold letter-spacing mb-2">
                       Internal access
                     </p>
-                    <h1 className="h3 fw-bold mb-3">Admin sign in</h1>
+                    <h1 className="h3 fw-bold mb-3 text-white">
+                      Admin sign in
+                    </h1>
                     <p className="text-white-50 small mb-0">
-                      For company expenditure and{" "}
+                      For company{" "}
                       <strong className="text-white">document downloads</strong>{" "}
                       (certificates, registrations). Customer enquiries: use{" "}
                       <Link
@@ -55,8 +57,8 @@ function LoginPage() {
                     <h2 className="h4 fw-bold text-dark mb-1">Administrator</h2>
                     <p className="text-secondary small mb-4">
                       Use the admin email and password configured for this build
-                      (see <code className="small">src/auth/constants.js</code>
-                      ).
+                      {/* (see <code className="small">src/auth/constants.js</code>
+                      ). */}
                     </p>
                     <form onSubmit={handleLogin}>
                       {error ? (

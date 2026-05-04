@@ -9,7 +9,6 @@ const baseNavItems = [
   { label: "Services", path: "/services" },
   { label: "Equipment", path: "/equipment" },
   { label: "Social", path: "/social-content" },
-  { label: "Customers", path: "/customers" },
   { label: "Blog", path: "/blog" },
   { label: "Contact", path: "/contact" },
 ];
@@ -136,7 +135,7 @@ function Navbar() {
                     }`
                   }
                 >
-                  Admin
+                  Login
                 </NavLink>
               )}
             </li>

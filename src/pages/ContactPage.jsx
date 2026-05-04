@@ -16,7 +16,9 @@ function ContactPage() {
     setError("");
     const trimmed = message.trim();
     if (trimmed.length < 12) {
-      setError("Please add a bit more detail (at least 12 characters) so we can help.");
+      setError(
+        "Please add a bit more detail (at least 12 characters) so we can help.",
+      );
       return;
     }
     try {
@@ -71,7 +73,7 @@ function ContactPage() {
               </li>
               <li>
                 <strong className="d-block text-dark">Hours</strong>
-                Mon–Sun, 9:00 AM – 9:00 PM
+                Mon–Sun, 6:00 AM – 9:00 PM
               </li>
             </ul>
             <p className="small text-muted mt-4 mb-0">
@@ -98,7 +100,9 @@ function ContactPage() {
                   className="alert alert-success border-0 rounded-3 mb-0"
                   role="status"
                 >
-                  <strong className="d-block mb-1">Thanks — we received that.</strong>
+                  <strong className="d-block mb-1">
+                    Thanks — we received that.
+                  </strong>
                   <span className="small d-block mb-2">
                     We usually respond within one business day. For emergencies,
                     call the number on the left.
@@ -112,14 +116,24 @@ function ContactPage() {
                   </button>
                 </div>
               ) : (
-                <form className="d-grid gap-3" onSubmit={handleSubmit} noValidate>
+                <form
+                  className="d-grid gap-3"
+                  onSubmit={handleSubmit}
+                  noValidate
+                >
                   {error ? (
-                    <div className="alert alert-warning py-2 small mb-0" role="alert">
+                    <div
+                      className="alert alert-warning py-2 small mb-0"
+                      role="alert"
+                    >
                       {error}
                     </div>
                   ) : null}
                   <div>
-                    <label htmlFor="contact-name" className="form-label small fw-semibold">
+                    <label
+                      htmlFor="contact-name"
+                      className="form-label small fw-semibold"
+                    >
                       Name <span className="text-danger">*</span>
                     </label>
                     <input
@@ -134,8 +148,12 @@ function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="contact-email" className="form-label small fw-semibold">
-                      Email <span className="text-muted fw-normal">(optional)</span>
+                    <label
+                      htmlFor="contact-email"
+                      className="form-label small fw-semibold"
+                    >
+                      Email{" "}
+                      <span className="text-muted fw-normal">(optional)</span>
                     </label>
                     <input
                       id="contact-email"
@@ -148,7 +166,10 @@ function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="contact-phone" className="form-label small fw-semibold">
+                    <label
+                      htmlFor="contact-phone"
+                      className="form-label small fw-semibold"
+                    >
                       Phone <span className="text-danger">*</span>
                     </label>
                     <input
@@ -163,7 +184,10 @@ function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="contact-message" className="form-label small fw-semibold">
+                    <label
+                      htmlFor="contact-message"
+                      className="form-label small fw-semibold"
+                    >
                       What do you need? <span className="text-danger">*</span>
                     </label>
                     <textarea

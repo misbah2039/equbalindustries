@@ -1,4 +1,10 @@
-export const socialPlatforms = ["All", "YouTube", "Instagram", "Facebook", "Twitter"];
+export const socialPlatforms = [
+  "All",
+  "YouTube",
+  "Instagram",
+  "Facebook",
+  "Twitter",
+];
 
 export const socialContentItems = [
   {
@@ -7,7 +13,8 @@ export const socialContentItems = [
     title: "Plant safety walkthrough",
     type: "Video",
     publishedAt: "2026-04-16",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    // embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "/carworkshop_2.jpg",
     postUrl: "https://www.youtube.com/",
     description:
       "Workshop-to-site checklist covering PPE, handover notes, and first-day risk controls.",
@@ -18,7 +25,8 @@ export const socialContentItems = [
     title: "Car diagnostics basics",
     type: "Video",
     publishedAt: "2026-03-28",
-    embedUrl: "https://www.youtube.com/embed/aqz-KE-bpKQ",
+    // embedUrl: "https://www.youtube.com/embed/aqz-KE-bpKQ",
+    thumbnail: "/carworkshop_2.jpg",
     postUrl: "https://www.youtube.com/",
     description:
       "Quick explainer on scanner usage, fault-code review, and practical troubleshooting.",
@@ -73,7 +81,7 @@ export const socialContentItems = [
     title: "Service availability alert",
     type: "Thread",
     publishedAt: "2026-04-05",
-    thumbnail: "/companylogomain.png",
+    thumbnail: "/engineeringandfieldservices.jpg",
     postUrl: "https://x.com/",
     description:
       "Routing desk updates for Lucknow, Delhi, and Dehradun support windows.",

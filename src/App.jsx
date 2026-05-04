@@ -5,7 +5,6 @@ import AboutPage from "./pages/AboutPage";
 import BlogIndexPage from "./pages/BlogIndexPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import ContactPage from "./pages/ContactPage";
-import CustomerPage from "./pages/Customer";
 import EquipmentPage from "./pages/EquipmentPage";
 import CompanyDocumentsPage from "./pages/CompanyDocumentsPage";
 import ExpenditurePage from "./pages/ExpenditurePage";
@@ -29,7 +28,6 @@ function App() {
         <Route path="/blog" element={<BlogIndexPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/customers" element={<CustomerPage />} />
         <Route path="/social-content" element={<SocialContentPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<Navigate to="/login" replace />} />

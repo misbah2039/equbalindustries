@@ -50,26 +50,21 @@ export const serviceCategories = [
     imageAlt: "Engineering and field services",
     applicantPageIntro:
       "Applicants and procurement teams can review indicative commercial terms below, then request a written estimate for the exact site or fleet scope.",
-    ownerFeesTitle: "Site & deployment charges (indicative)",
+    ownerFeesTitle: "Business advisory fee details",
     ownerFeesNote:
-      "Rates vary by city, shift pattern, and safety class. Numbers below are typical starting points for planning — not final tax invoices.",
+      "Standard advisory fee card used across our services for planning and support engagements.",
     ownerFeesRows: [
       {
-        label: "Multi-trade site survey (within 25 km of our offices)",
-        detail: "Complimentary when a job is confirmed within 30 days.",
+        label: "Business advice",
+        detail: "₹30,000",
       },
       {
-        label: "Supervisor day-rate (civil / MEP / workshop lead)",
-        detail: "From ₹4,500 / day + applicable taxes.",
+        label: "Site visit",
+        detail: "₹8,000",
       },
       {
-        label: "Night / holiday shift uplift",
-        detail: "+18% on labour component, quoted in advance.",
-      },
-      {
-        label: "Equipment on rent (small tools to bay lifts)",
-        detail:
-          "Daily / weekly slabs — see Equipment page or ask for a bundle quote.",
+        label: "Business growing advice 3 month pack",
+        detail: "₹70,000",
       },
     ],
     items: [
@@ -98,46 +93,40 @@ export const serviceCategories = [
     imageAlt: "Education and event services",
     applicantPageIntro:
       "Course applicants, institutions, and event hosts can review owner fees and participant charges below. Final amounts are confirmed in writing at registration / contract stage.",
-    ownerFeesTitle: "Owner fee schedule (transparent)",
+    ownerFeesTitle: "Business advisory fee details",
     ownerFeesNote:
-      "“Owner” refers to Equbal / programme organiser facilitation. GST and venue pass-through are shown separately on invoices where applicable.",
+      "Standard advisory fee card used across our services for planning and support engagements.",
     ownerFeesRows: [
       {
-        label: "Institution tie-up — annual catalogue listing",
-        detail:
-          "₹ 9,999 + GST (includes two featured programme slots on our portal).",
+        label: "Business advice",
+        detail: "₹30,000",
       },
       {
-        label: "Per-batch facilitation (courses & certifications)",
-        detail:
-          "8–12% of published batch fee (MOU-based; lower % for non-profit schools).",
+        label: "Site visit",
+        detail: "₹8,000",
       },
       {
-        label: "Dedicated event production retainer (seminars / launches)",
-        detail: "From ₹24,999 + GST for up to 120 guests (excludes venue F&B).",
-      },
-      {
-        label: "Owner late-cancellation (within 72 hrs of event)",
-        detail: "25% of agreed organiser fee to cover committed vendors.",
+        label: "Business growing advice 3 month pack",
+        detail: "₹70,000",
       },
     ],
-    applicantFeesTitle: "Typical participant / attendee fees (samples)",
-    applicantFeesRows: [
-      {
-        label: "2-day industrial safety workshop",
-        detail: "₹ 2,499 per seat (10% discount for 25+ seats from one PO).",
-      },
-      {
-        label: "Half-day parent orientation (school partner events)",
-        detail:
-          "₹ 499 per family (waived when fully sponsored by host school).",
-      },
-      {
-        label: "Online certification prep (8 live sessions)",
-        detail:
-          "₹ 3,999 incl. study kit download (batch start dates on enquiry).",
-      },
-    ],
+    // applicantFeesTitle: "Typical participant / attendee fees (samples)",
+    // applicantFeesRows: [
+    //   {
+    //     label: "2-day industrial safety workshop",
+    //     detail: "₹ 2,499 per seat (10% discount for 25+ seats from one PO).",
+    //   },
+    //   {
+    //     label: "Half-day parent orientation (school partner events)",
+    //     detail:
+    //       "₹ 499 per family (waived when fully sponsored by host school).",
+    //   },
+    //   {
+    //     label: "Online certification prep (8 live sessions)",
+    //     detail:
+    //       "₹ 3,999 incl. study kit download (batch start dates on enquiry).",
+    //   },
+    // ],
     items: [
       "Educational / Course",
       "Training (Online)",
@@ -157,32 +146,25 @@ export const serviceCategories = [
     tagline: "Reach, reputation, and cross-border trade — in one stack.",
     overview:
       "Creative and digital campaigns, performance-led social presence, and import–export agency support for businesses that want to grow in India and beyond without juggling ten different vendors.",
-    imagePath: "/companylogomain.png",
+    imagePath: "/marketing.jpeg",
     imageAlt: "Marketing and trade services",
     applicantPageIntro:
       "Brands and importers can use the slabs below for budgeting. Campaigns and shipments are always scoped in a formal proposal before billing.",
-    ownerFeesTitle: "Agency & retainer structure (indicative)",
+    ownerFeesTitle: "Business advisory fee details",
     ownerFeesNote:
-      "Creative production is quoted per deliverable; media spend is billed at actuals with zero hidden markup on platform invoices.",
+      "Standard advisory fee card used across our services for planning and support engagements.",
     ownerFeesRows: [
       {
-        label: "Monthly social + content retainer (SMB)",
-        detail:
-          "From ₹29,999 + GST (4 reels + 12 statics + community management).",
+        label: "Business advice",
+        detail: "₹30,000",
       },
       {
-        label: "Performance marketing management fee",
-        detail:
-          "12–15% of ad spend (min ₹8,000 / month) + creative add-ons as quoted.",
+        label: "Site visit",
+        detail: "₹8,000",
       },
       {
-        label: "Import–export documentation & liaison (per shipment)",
-        detail: "From ₹7,500 + GST + government / CHA charges at actual.",
-      },
-      {
-        label: "Rush creative (48h turnaround)",
-        detail:
-          "+30% on standard creative fee card — subject to team availability.",
+        label: "Business growing advice 3 month pack",
+        detail: "₹70,000",
       },
     ],
     items: [
@@ -208,36 +190,72 @@ export function getServiceCategoryBySlug(slug) {
  */
 export const companyLeadershipSpotlight = {
   eyebrow: "Leadership",
-  ownerName: "",
+  ownerName: "Owner",
   roleLine: "Founder-led vision · Workshop roots · Pan-India coordination",
+  ownerDegreeLine:
+    "B.Tech (Mechanical) · MBA (Operations) · Diploma in Auto Diagnostics · Certified Workshop Process Lead",
+  ownerCertificationLine:
+    "B.Gas Level-2 | CSWIP 3.1 | NACE Level-2 | NACE Level-1 | NDT Level-2 | NDT Level-1",
+  ownerExperienceLine:
+    "12+ years in workshop operations, fleet support, and project execution",
   paragraphs: [
     "Equbal Industries & Car Services is led from the ground up: leadership that grew out of workshop bays, industrial sites, and customer vehicles — not slides alone. We stand behind clear milestones, trained teams, and documents that stand up in tenders and fleet reviews.",
     "Offices in Lucknow, Delhi, and Dehradun anchor day-to-day routing; pan-India programmes run where timeline and scope fit our crews. If you want a partner who speaks both wrench and contract language, you will find that posture here.",
   ],
-  imagePath: "/ceo.jpeg",
+  imagePath: "/owner.jpeg",
   imageAlt: "Equbal Industries leadership",
 };
 
 export const leadershipTeam = [
   {
-    name: "Chief Executive Officer (CEO)",
-    role: "Strategic leadership and growth",
-    imagePath: "/ceo.jpeg",
-    imageAlt: "Chief Executive Officer photo",
+    name: "Owner",
+    role: "Planning Head & Mechanical Engineer (Kuwait Petroleum - Middle East Head Office Department) · Professional Business Advisor",
+    degree:
+      "B.Tech (Mechanical) · MBA (Operations) · Diploma in Auto Diagnostics · Certified Workshop Process Lead",
+    degreeList: [
+      "B.Tech (Mechanical Engineering)",
+      "MBA (Operations Management)",
+      "Diploma in Auto Diagnostics",
+      "Certified Workshop Process Lead",
+    ],
+    certifications: [
+      "B.Gas Level-2 (British Standard)",
+      "CSWIP 3.1",
+      "NACE Level-2 (American Standard)",
+      "NACE Level-1 (American Standard)",
+      "NDT Level-2",
+      "NDT Level-1",
+    ],
+    experience: "12+ years",
+    imagePath: "/owner.jpeg",
+    imageAlt: "Owner photo",
     featured: true,
   },
   {
-    name: "Managing Director (MD)",
-    role: "Operations and execution oversight",
-    imagePath: "/ceo.jpeg",
-    imageAlt: "Managing Director photo",
+    name: "Technical Head",
+    role: "Manage Technical Department",
+    degree: "B.tech (Mechanical)",
+    experience: "12+ years",
+    imagePath: "/hisamuddin.jpeg",
+    imageAlt: "Technical Head photo",
     featured: false,
   },
   {
     name: "Operational Manager",
     role: "Day-to-day workflow and service coordination",
-    imagePath: "/carworkshop.jpg",
+    degree: "MBA",
+    experience: "10+ years",
+    imagePath: "/dummy.png",
     imageAlt: "Operational Manager photo",
+    featured: false,
+  },
+  {
+    name: "IT Head",
+    role: "Manage IT Department",
+    degree: "B.tech (IT Engineering)",
+    experience: "4+ years",
+    imagePath: "/dummy.png",
+    imageAlt: "Managing Director photo",
     featured: false,
   },
 ];
@@ -347,58 +365,58 @@ export const gallerySamples = [
 
 export const partnerLogos = [
   { name: "Partner One", imagePath: "/companylogomain.png" },
-  { name: "Partner Two", imagePath: "/companylogo.png" },
-  { name: "Partner Three", imagePath: "/companylogos.jpg" },
+  { name: "Partner Two", imagePath: "/companylogomain.png" },
+  { name: "Partner Three", imagePath: "/companylogomain.png" },
   { name: "Partner Four", imagePath: "/companylogomain.png" },
-  { name: "Partner Five", imagePath: "/companylogo.png" },
+  { name: "Partner Five", imagePath: "/companylogomain.png" },
 ];
 
 export const valuableCustomers = [
   {
     name: "Customer One",
-    imagePath: "/ceo.jpeg",
+    imagePath: "/companylogomain.png",
     description: "Long-term client in engineering and service operations.",
     rating: 5,
     shortQuote: "On-time delivery every single phase of our plant upgrade.",
   },
   {
     name: "Customer Two",
-    imagePath: "/carworkshop.jpg",
+    imagePath: "/companylogomain.png",
     description: "Trusted customer for event and educational activities.",
     rating: 4.5,
     shortQuote: "Seminar logistics were flawless — our delegates noticed.",
   },
   {
     name: "Customer Three",
-    imagePath: "/carworkshop_1.jpg",
+    imagePath: "/companylogomain.png",
     description: "Business partner for marketing and trade services.",
     rating: 5,
     shortQuote: "Clear reporting; campaigns finally match ground reality.",
   },
   {
     name: "Customer Four",
-    imagePath: "/engineeringandfieldservices.jpg",
+    imagePath: "/companylogomain.png",
     description: "Business partner for marketing and trade services.",
     rating: 4,
     shortQuote: "Fleet downtime dropped after their maintenance schedule.",
   },
   {
     name: "Customer Five",
-    imagePath: "/educationandeventservices.jpg",
+    imagePath: "/companylogomain.png",
     description: "Business partner for marketing and trade services.",
     rating: 5,
     shortQuote: "Professional team — they treat our workshop like their own.",
   },
   {
     name: "Customer Six",
-    imagePath: "/carworkshop_2.jpg",
+    imagePath: "/companylogomain.png",
     description: "Business partner for marketing and trade services.",
     rating: 4.5,
     shortQuote: "Import paperwork handled without us chasing daily updates.",
   },
   {
     name: "Customer Seven",
-    imagePath: "/download.jpeg",
+    imagePath: "/companylogomain.png",
     description: "Business partner for marketing and trade services.",
     rating: 4,
     shortQuote: "Solid HVAC support during our campus expansion project.",

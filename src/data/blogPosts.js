@@ -22,7 +22,7 @@ export const blogPosts = [
       "How Equbal aligns field teams with PPE, permits, and clear communication on industrial projects.",
     date: "2025-12-06",
     readTime: "5 min read",
-    imagePath: "/engineeringandfieldservices.jpg",
+    imagePath: "/onsite.jpeg",
     tag: "Industry",
     paragraphs: [
       "Industrial sites reward consistency: toolbox talks, visible permits, and a single point of contact for the client’s safety officer reduce friction and keep work moving.",
