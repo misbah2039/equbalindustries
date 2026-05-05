@@ -198,8 +198,8 @@ function AboutPage() {
                 Leadership team and credentials
               </h2>
               <p className="small text-body-secondary mb-0">
-                Dedicated section for owner and leadership depth, qualifications,
-                and experience.
+                Dedicated section for owner and leadership depth,
+                qualifications, and experience.
               </p>
             </div>
             <span className="badge text-bg-light border rounded-pill px-3 py-2">
@@ -212,11 +212,11 @@ function AboutPage() {
                 <article className="equbal-lead-card equbal-lead-card--featured">
                   <div className="row g-0 align-items-stretch">
                     <div className="col-sm-5 col-lg-4">
-                      <div className="ratio ratio-1x1 h-100 bg-light">
+                      <div className="equbal-featured-owner-photo h-100 bg-light">
                         <img
                           src={featuredLeader.imagePath}
                           alt={featuredLeader.imageAlt || featuredLeader.name}
-                          className="object-fit-cover rounded-start-3"
+                          className="equbal-featured-owner-image object-fit-cover rounded-start-3"
                         />
                       </div>
                     </div>

@@ -195,7 +195,7 @@ export const companyLeadershipSpotlight = {
   ownerDegreeLine:
     "B.Tech (Mechanical) · MBA (Operations) · Diploma in Auto Diagnostics · Certified Workshop Process Lead",
   ownerCertificationLine:
-    "B.Gas Level-2 | CSWIP 3.1 | NACE Level-2 | NACE Level-1 | NDT Level-2 | NDT Level-1",
+    "B.Gas Level-2 | CSWIP 3.1 | NACE Level-2 |  NDT Level-2 | NDT Level-1",
   ownerExperienceLine:
     "12+ years in workshop operations, fleet support, and project execution",
   paragraphs: [
