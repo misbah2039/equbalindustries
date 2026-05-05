@@ -191,7 +191,7 @@ function HomePage() {
       <section className="section equbal-home-owner bg-white border-bottom">
         <div className="container">
           <div className="row g-4 g-lg-5 ">
-            <div className="col-md-5 col-lg-4 mx-auto mx-md-0">
+            <div className="col-md-5 col-lg-5 mx-auto mx-md-0">
               <div className="equbal-home-owner-photo rounded-4 overflow-hidden w-100 h-100 shadow-lg bg-light">
                 <img
                   src={ownerPhotoCandidates[ownerPhotoIndex]}
@@ -211,7 +211,7 @@ function HomePage() {
                 />
               </div>
             </div>
-            <div className="col-md-7 col-lg-8">
+            <div className="col-md-7 col-lg-7">
               <p className="section-eyebrow mb-2">
                 {companyLeadershipSpotlight.eyebrow}
               </p>
@@ -226,15 +226,42 @@ function HomePage() {
               <p className="small text-uppercase fw-bold text-secondary letter-spacing mb-3">
                 {companyLeadershipSpotlight.roleLine}
               </p>
-              <p className="small text-dark fw-semibold mb-1">
-                {companyLeadershipSpotlight.ownerDegreeLine}
-              </p>
+              <div className="equbal-owner-degree-highlight mb-2">
+                <span className="equbal-owner-degree-label">Degree</span>
+                <p className="small text-dark fw-semibold mb-0">
+                  {companyLeadershipSpotlight.ownerDegreeLine}
+                </p>
+              </div>
               <p className="small text-secondary mb-1">
                 {companyLeadershipSpotlight.ownerCertificationLine}
               </p>
               <p className="small text-secondary mb-3">
                 Experience: {companyLeadershipSpotlight.ownerExperienceLine}
               </p>
+              {featuredLeader?.degreeList?.length ? (
+                <div className="equbal-lead-degree-box mb-3">
+                  <p className="small fw-semibold mb-2">Owner qualifications</p>
+                  <ul className="small mb-0">
+                    {featuredLeader.degreeList.map((deg) => (
+                      <li key={deg}>{deg}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              {featuredLeader?.certifications?.length ? (
+                <div className="equbal-lead-cert-wrap mt-3 mb-3">
+                  <p className="small fw-semibold mb-2">
+                    Additional certifications
+                  </p>
+                  <div className="equbal-lead-meta">
+                    {featuredLeader.certifications.map((cert) => (
+                      <span className="equbal-lead-chip" key={cert}>
+                        {cert}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
               {companyLeadershipSpotlight.paragraphs.map((para, idx) => (
                 <p
                   className="text-secondary lh-lg mb-3 equbal-readability-text"

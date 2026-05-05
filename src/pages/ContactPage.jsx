@@ -10,6 +10,7 @@ function ContactPage() {
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+  const [emailTriggered, setEmailTriggered] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -35,6 +36,22 @@ function ContactPage() {
     } catch {
       /* still show success — form UX matters more than storage */
     }
+    const subject = encodeURIComponent(
+      `New inquiry from ${name.trim() || "website visitor"}`,
+    );
+    const body = encodeURIComponent(
+      [
+        `Name: ${name.trim()}`,
+        `Phone: ${phone.trim()}`,
+        `Email: ${email.trim() || "Not provided"}`,
+        "",
+        "Message:",
+        trimmed,
+      ].join("\n"),
+    );
+    const mailtoHref = `mailto:equbalindustries@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = mailtoHref;
+    setEmailTriggered(true);
     setSent(true);
     setName("");
     setEmail("");
@@ -91,8 +108,8 @@ function ContactPage() {
             <div className="card border-0 shadow-sm p-4 p-md-5 rounded-4">
               <h2 className="h5 fw-bold mb-1">Send an inquiry</h2>
               <p className="text-secondary small mb-4">
-                We keep a copy in your browser (demo) and you can still email us
-                directly anytime.
+                On submit, your default mail app opens and the message is
+                prefilled to equbalindustries@gmail.com.
               </p>
 
               {sent ? (
@@ -104,8 +121,9 @@ function ContactPage() {
                     Thanks — we received that.
                   </strong>
                   <span className="small d-block mb-2">
-                    We usually respond within one business day. For emergencies,
-                    call the number on the left.
+                    {emailTriggered
+                      ? "Your email app was triggered with the inquiry details for equbalindustries@gmail.com."
+                      : "We usually respond within one business day. For emergencies, call the number on the left."}
                   </span>
                   <button
                     type="button"

@@ -2629,6 +2629,28 @@ h6,
   padding-top: 0.7rem;
 }
 
+.equbal-leadership-showcase {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+}
+
+.equbal-owner-degree-highlight {
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  background: linear-gradient(135deg, rgba(255, 247, 237, 0.95), #fff);
+  border-radius: 0.75rem;
+  padding: 0.55rem 0.7rem;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.12);
+}
+
+.equbal-owner-degree-label {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9a3412;
+  margin-bottom: 0.25rem;
+}
+
 /* Auth tabs on login page */
 .equbal-auth-tabs .btn {
   flex: 1;
