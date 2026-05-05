@@ -1,9 +1,9 @@
 /** Floating WhatsApp — +91-7518441997 */
-const WHATSAPP_E164 = "917518441997";
+const WHATSAPP_E164 = "918924034924";
 
 function WhatsAppFloat() {
   const href = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(
-    "Hi Equbal, I would like to discuss a service."
+    "Hi Equbal, I would like to discuss a service.",
   )}`;
 
   return (

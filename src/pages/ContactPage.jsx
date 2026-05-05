@@ -75,7 +75,7 @@ function ContactPage() {
             <ul className="list-unstyled d-grid gap-3 small">
               <li>
                 <strong className="d-block text-dark">Phone</strong>
-                <a href="tel:+917518441997" className="text-decoration-none">
+                <a href="tel:+918924034924" className="text-decoration-none">
                   +91-7518441997
                 </a>
               </li>
